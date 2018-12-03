@@ -9,7 +9,7 @@ class footer extends Component {
                         <div className="row">
                             <div className="footer-wrapper">
                                 <div className="col-md-3 col-sm-3">
-                                    <a href="#"><img src="images/logo-black.png" alt className="footer-logo" /></a>
+                                    <a href="#"><img src="images/Logo_Resize.png" alt className="footer-logo" /></a>
                                     <ul className="list-inline social-icons">
                                         <li><a href="#"><i className="icon ion-social-facebook" /></a></li>
                                         <li><a href="#"><i className="icon ion-social-twitter" /></a></li>

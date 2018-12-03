@@ -1605,8 +1605,9 @@ ul.online-users li span.online-dot{
 }
 
 .timeline-cover .timeline-nav-bar .follow-me li{
-  padding: 6px 15px;
-  color: #fff;
+  padding: 6px 7px;
+  color: gray;
+  font-weight: bold;
 }
 
 /*Timeline Menu for Small Screens*/
