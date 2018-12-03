@@ -1,0 +1,27 @@
+.nav-tabs {
+    float: left;
+    border: 1px solid #ccc;
+    width: auto;
+    height: 600px;
+}
+
+.nav-tabs li {
+    background-color: white;
+
+    transition: background 0.5s;
+}
+.nav-tabs li:hover {
+    background-color: orange;
+}
+
+.nav-tabs li.active {
+    background-color: orangered;
+}
+
+.nav-tabs .nav-item a{
+    height: 300px;
+}
+
+.tab-content #register #login{
+    height: 600px;
+}
