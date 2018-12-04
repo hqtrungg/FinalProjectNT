@@ -3,6 +3,7 @@ import Header from './header';
 import Footer from './footer';
 import Activity from './activity';
 import CoverTimeline from './cover-timeline';
+import {FOLLOWING} from '../constants/Timeline'
 
 class TimelineFollowing extends Component {
     render() {
@@ -11,7 +12,7 @@ class TimelineFollowing extends Component {
                 <Header />
                 <div className="container">
                     <div className="timeline">
-                        <CoverTimeline component="following" />
+                        <CoverTimeline component={FOLLOWING} />
                     </div>
                     <div id="page-contents">
                         <div className="row">

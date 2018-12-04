@@ -3,6 +3,7 @@ import Header from './header';
 import Footer from './footer';
 import Activity from './activity';
 import CoverTimeline from './cover-timeline';
+import {TIMEPHOTO} from '../constants/Timeline'
 
 class TimelinePhoto extends Component {
     render() {
@@ -11,7 +12,7 @@ class TimelinePhoto extends Component {
                 <Header />
                 <div className="container">
                     <div className="timeline">
-                        <CoverTimeline component="timephoto"/>
+                        <CoverTimeline component={TIMEPHOTO}/>
                     </div>
                     <div id="page-contents">
                         <div className="row">

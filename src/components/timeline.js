@@ -5,6 +5,7 @@ import Activity from './activity';
 import CoverTimeline from './cover-timeline';
 import PostBox from './postbox';
 import Status from './status';
+import {TIMELINE} from '../constants/Timeline'
 
 class Timeline extends Component {
     render() {
@@ -13,7 +14,7 @@ class Timeline extends Component {
                 <Header/>
                 <div className="container">
                     <div className="timeline">
-                        <CoverTimeline component="timeline"/> 
+                        <CoverTimeline component={TIMELINE}/> 
                     </div>
                     <div id="page-contents">
                         <div className="row">

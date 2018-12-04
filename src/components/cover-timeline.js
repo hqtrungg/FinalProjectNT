@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import {TIMELINE, TIMEABOUT, TIMEPHOTO, FOLLOWERS, FOLLOWING} from '../constants/Timeline'
 
 class covertimeline extends Component {
     render() {
@@ -17,11 +18,11 @@ class covertimeline extends Component {
                         </div>
                         <div className="col-md-9">
                             <ul className="list-inline profile-menu">
-                                <li><Link className={this.props.component === 'timeline' ? "active" : ""} to={`/timeline`}>Timeline</Link></li>
-                                <li><Link className={this.props.component === 'timeabout' ? "active" : ""} to={`/timeabout`}>About</Link></li>
-                                <li><Link className={this.props.component === 'timephoto' ? "active" : ""} to={`/timephoto`}>Album</Link></li>
-                                <li><Link className={this.props.component === 'following' ? "active" : ""} to={`/following`}>Following</Link></li>
-                                <li><Link className={this.props.component === 'followers' ? "active" : ""} to={`/followers`}>Followers</Link></li>
+                                <li><Link className={this.props.component === TIMELINE ? "active" : ""} to={`/timeline`}>Timeline</Link></li>
+                                <li><Link className={this.props.component === TIMEABOUT ? "active" : ""} to={`/timeabout`}>About</Link></li>
+                                <li><Link className={this.props.component === TIMEPHOTO ? "active" : ""} to={`/timephoto`}>Album</Link></li>
+                                <li><Link className={this.props.component === FOLLOWERS ? "active" : ""} to={`/following`}>Following</Link></li>
+                                <li><Link className={this.props.component === FOLLOWING ? "active" : ""} to={`/followers`}>Followers</Link></li>
                             </ul>
                             <ul className="follow-me list-inline">
                                 <li>1,299 Following</li>
