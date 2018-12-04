@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Header from './header';
 import Footer from './footer';
-import Activity from './activity';
-import CoverTimeline from './cover-timeline';
 import PostBox from './postbox';
 import Status from './status';
 import FollowHint from './followhint'
+import { Link } from 'react-router-dom'
 
 class newfeed extends Component {
     render() {
@@ -18,18 +17,20 @@ class newfeed extends Component {
                             <div className="col-md-3 static">
                                 <div className="profile-card">
                                     <img src="images/users/user-1.jpg" alt="user" className="profile-photo" />
-                                    <h5><a href="timeline.html" className="text-white">Sarah Cruiz</a></h5>
-                                    <a href="#" className="text-white"><i className="ion ion-android-person-add" /> 1,299 followers</a>
+                                    <h5>
+                                        <Link to={`/timeline`} className="text-white">
+                                            Sarah Cruiz
+                                        </Link>
+                                    </h5>
+                                    <i className="ion ion-android-person-add" /><Link to={`/followers`} className="text-white">  1,299 followers</Link>
                                     <br />
-                                    <a href="#" className="text-white"><i className="ion ion-android-person-add" /> 1,000 following</a>
+                                    <i className="ion ion-android-person-add" /><Link to={`/following`} className="text-white">  1,000 following</Link>
                                 </div>
                                 <ul className="nav-news-feed">
-                                    <li><i className="icon ion-ios-paper" /><div><a href="newsfeed.html">My Newsfeed</a></div></li>
-                                    <li><i className="icon ion-ios-people" /><div><a href="newsfeed-people-nearby.html">People Nearby</a></div></li>
-                                    <li><i className="icon ion-ios-people-outline" /><div><a href="newsfeed-friends.html">Friends</a></div></li>
-                                    <li><i className="icon ion-chatboxes" /><div><a href="newsfeed-messages.html">Messages</a></div></li>
-                                    <li><i className="icon ion-images" /><div><a href="newsfeed-images.html">Images</a></div></li>
-                                    <li><i className="icon ion-ios-videocam" /><div><a href="newsfeed-videos.html">Videos</a></div></li>
+                                    <li><i className="icon ion-ios-paper" /><div><a href="#">My Newsfeed</a></div></li>
+                                    <li><i className="icon ion-ios-people" /><div><a href="#">People Nearby</a></div></li>
+                                    <li><i className="icon ion-images" /><div><a href="#">Images</a></div></li>
+                                    <li><i className="icon ion-ios-videocam" /><div><a href="#">Videos</a></div></li>
                                 </ul>
                             </div>
 

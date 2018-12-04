@@ -24,15 +24,15 @@ class status extends Component {
                         </div>
                         <div className="line-divider" />
                         <div className="post-comment">
-                            <img src="images/users/user-11.jpg" alt className="profile-photo-sm" />
+                            <img src="images/users/user-11.jpg" alt="" className="profile-photo-sm" />
                             <p><a href="timeline.html" className="profile-link">Diana </a><i className="em em-laughing" /> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
                         </div>
                         <div className="post-comment">
-                            <img src="images/users/user-4.jpg" alt className="profile-photo-sm" />
+                            <img src="images/users/user-4.jpg" alt="" className="profile-photo-sm" />
                             <p><a href="timeline.html" className="profile-link">John</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
                         </div>
                         <div className="post-comment">
-                            <img src="images/users/user-1.jpg" alt className="profile-photo-sm" />
+                            <img src="images/users/user-1.jpg" alt="" className="profile-photo-sm" />
                             <input type="text" className="form-control" placeholder="Post a comment" />
                         </div>
                     </div>
