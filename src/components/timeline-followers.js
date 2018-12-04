@@ -11,7 +11,7 @@ class TimelineFollowers extends Component {
                 <Header />
                 <div className="container">
                     <div className="timeline">
-                        <CoverTimeline />
+                        <CoverTimeline component="followers" />
                     </div>
                     <div id="page-contents">
                         <div className="row">

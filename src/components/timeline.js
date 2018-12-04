@@ -13,7 +13,7 @@ class Timeline extends Component {
                 <Header/>
                 <div className="container">
                     <div className="timeline">
-                        <CoverTimeline/> 
+                        <CoverTimeline component="timeline"/> 
                     </div>
                     <div id="page-contents">
                         <div className="row">

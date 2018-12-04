@@ -11,7 +11,7 @@ class TimelinePhoto extends Component {
                 <Header />
                 <div className="container">
                     <div className="timeline">
-                        <CoverTimeline />
+                        <CoverTimeline component="timephoto"/>
                     </div>
                     <div id="page-contents">
                         <div className="row">
