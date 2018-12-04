@@ -9,13 +9,13 @@ class footer extends Component {
                         <div className="row">
                             <div className="footer-wrapper">
                                 <div className="col-md-3 col-sm-3">
-                                    <a href="#"><img src="images/Logo_Resize.png" alt className="footer-logo" /></a>
+                                    <a href="#"><img src="images/Logo_Resize.png" alt="" className="footer-logo" /></a>
                                     <ul className="list-inline social-icons">
-                                        <li><a href="#"><i className="icon ion-social-facebook" /></a></li>
-                                        <li><a href="#"><i className="icon ion-social-twitter" /></a></li>
-                                        <li><a href="#"><i className="icon ion-social-googleplus" /></a></li>
-                                        <li><a href="#"><i className="icon ion-social-pinterest" /></a></li>
-                                        <li><a href="#"><i className="icon ion-social-linkedin" /></a></li>
+                                        <li><a href="#section"><i className="icon ion-social-facebook" /></a></li>
+                                        <li><a href="#section"><i className="icon ion-social-twitter" /></a></li>
+                                        <li><a href="#section"><i className="icon ion-social-googleplus" /></a></li>
+                                        <li><a href="#section"><i className="icon ion-social-pinterest" /></a></li>
+                                        <li><a href="#section"><i className="icon ion-social-linkedin" /></a></li>
                                     </ul>
                                 </div>
                                 <div className="col-md-2 col-sm-2">
@@ -24,7 +24,6 @@ class footer extends Component {
                                         <li><a href="#">Signup</a></li>
                                         <li><a href="#">login</a></li>
                                         <li><a href="#">Explore</a></li>
-                                        <li><a href="#">Finder app</a></li>
                                         <li><a href="#">Features</a></li>
                                         <li><a href="#">Language settings</a></li>
                                     </ul>
@@ -54,15 +53,15 @@ class footer extends Component {
                                     <h5>Contact Us</h5>
                                     <ul className="contact">
                                         <li><i className="icon ion-ios-telephone-outline" />+1 (234) 222 0754</li>
-                                        <li><i className="icon ion-ios-email-outline" />info@thunder-team.com</li>
-                                        <li><i className="icon ion-ios-location-outline" />228 Park Ave S NY, USA</li>
+                                        <li><i className="icon ion-ios-email-outline" />info@nachi.com</li>
+                                        <li><i className="icon ion-ios-location-outline" />27 Nguyen Van Cu</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="copyright">
-                        <p>Thunder Team © 2016. All rights reserved</p>
+                        <p>NT Team © 2018. All rights reserved</p>
                     </div>
                 </footer>
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 class header extends Component {
     render() {
@@ -15,65 +16,43 @@ class header extends Component {
                                     <span className="icon-bar" />
                                     <span className="icon-bar" />
                                 </button>
-                                <a className="navbar-brand" href="index-register.html"><img src="images/Logo_Resize.png" alt="logo" /></a>
+                                <Link className="navbar-brand" to={`/newfeed`}><img src="images/Logo_Resize.png" alt="logo" /></Link>
                             </div>
                             {/* Collect the nav links, forms, and other content for toggling */}
                             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul className="nav navbar-nav navbar-right main-menu">
                                     <li className="dropdown">
-                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span><img src="images/down-arrow.png" alt /></span></a>
+                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newsfeed <span><img src="images/down-arrow.png" alt="" /></span></a>
                                         <ul className="dropdown-menu newsfeed-home">
-                                            <li><a href="index-2.html">Landing Page 1</a></li>
-                                            <li><a href="index-register.html">Landing Page 2</a></li>
+                                            <li><Link to={`/newfeed`}>Newsfeed</Link></li>
+                                            <li><a href="#">Poeple Nearly</a></li>
+                                            <li><Link to={`/followers`}>Followers</Link></li>
+                                            <li><a href="#">Images</a></li>
                                         </ul>
                                     </li>
                                     <li className="dropdown">
-                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newsfeed <span><img src="images/down-arrow.png" alt /></span></a>
-                                        <ul className="dropdown-menu newsfeed-home">
-                                            <li><a href="newsfeed.html">Newsfeed</a></li>
-                                            <li><a href="newsfeed-people-nearby.html">Poeple Nearly</a></li>
-                                            <li><a href="newsfeed-friends.html">My friends</a></li>
-                                            <li><a href="newsfeed-messages.html">Chatroom</a></li>
-                                            <li><a href="newsfeed-images.html">Images</a></li>
-                                            <li><a href="newsfeed-videos.html">Videos</a></li>
-                                        </ul>
-                                    </li>
-                                    <li className="dropdown">
-                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="images/down-arrow.png" alt /></span></a>
+                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="images/down-arrow.png" alt="" /></span></a>
                                         <ul className="dropdown-menu login">
-                                            <li><a href="timeline.html">Timeline</a></li>
-                                            <li><a href="timeline-about.html">Timeline About</a></li>
-                                            <li><a href="timeline-album.html">Timeline Album</a></li>
-                                            <li><a href="timeline-friends.html">Timeline Friends</a></li>
-                                            <li><a href="edit-profile-basic.html">Edit: Basic Info</a></li>
-                                            <li><a href="edit-profile-work-edu.html">Edit: Work</a></li>
-                                            <li><a href="edit-profile-interests.html">Edit: Interests</a></li>
-                                            <li><a href="edit-profile-settings.html">Account Settings</a></li>
-                                            <li><a href="edit-profile-password.html">Change Password</a></li>
+                                            <li><Link to={`/timeline`}>Timeline</Link></li>
+                                            <li><Link to={`/timeabout`}>Timeline About</Link></li>
+                                            <li><Link to={`/timephoto`}>Timeline Album</Link></li>
+                                            <li><Link to={`/following`}>Following</Link></li>
+                                            <li><Link to={`/followers`}>Followers</Link></li>
+                                            <li><Link to={`/edit`}>Edit Profile</Link></li>
                                         </ul>
                                     </li>
                                     <li className="dropdown">
-                                        <a href="#" className="dropdown-toggle pages" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Pages <span><img src="images/down-arrow.png" alt /></span></a>
+                                        <a href="#" className="dropdown-toggle pages" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Pages <span><img src="images/down-arrow.png" alt="" /></span></a>
                                         <ul className="dropdown-menu page-list">
-                                            <li><a href="index-2.html">Landing Page 1</a></li>
-                                            <li><a href="index-register.html">Landing Page 2</a></li>
-                                            <li><a href="newsfeed.html">Newsfeed</a></li>
-                                            <li><a href="newsfeed-people-nearby.html">Poeple Nearly</a></li>
-                                            <li><a href="newsfeed-friends.html">My friends</a></li>
-                                            <li><a href="newsfeed-messages.html">Chatroom</a></li>
-                                            <li><a href="newsfeed-images.html">Images</a></li>
-                                            <li><a href="newsfeed-videos.html">Videos</a></li>
-                                            <li><a href="timeline.html">Timeline</a></li>
-                                            <li><a href="timeline-about.html">Timeline About</a></li>
-                                            <li><a href="timeline-album.html">Timeline Album</a></li>
-                                            <li><a href="timeline-friends.html">Timeline Friends</a></li>
-                                            <li><a href="edit-profile-basic.html">Edit Profile</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="faq.html">FAQ Page</a></li>
-                                            <li><a href="404.html">404 Not Found</a></li>
+                                            <li><Link to={`/newfeed`}>Newsfeed</Link></li>
+                                            <li><Link to={`/timeline`}>Timeline</Link></li>
+                                            <li><Link to={`/edit`}>Edit Profile</Link></li>
+                                            <li><a href="#">Contact Us</a></li>
+                                            <li><a href="#">FAQ Page</a></li>
+                                            <li><a href="#">404 Not Found</a></li>
                                         </ul>
                                     </li>
-                                    <li className="dropdown"><a href="contact.html">Contact</a></li>
+                                    <li className="dropdown"><a href="#">Contact</a></li>
                                 </ul>
                                 <form className="navbar-form navbar-right hidden-sm">
                                     <div className="form-group">

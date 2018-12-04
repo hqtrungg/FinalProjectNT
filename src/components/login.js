@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 class login extends Component {
     render() {
@@ -17,71 +18,6 @@ class login extends Component {
                                 </button>
                                 <a className="navbar-brand" href="index-register.html"><img src="images/Logo_Resize.png" alt="logo" /></a>
                             </div>
-                            {/* Collect the nav links, forms, and other content for toggling */}
-                            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul className="nav navbar-nav navbar-right main-menu">
-                                    <li className="dropdown">
-                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span><img src="images/down-arrow.png" alt /></span></a>
-                                        <ul className="dropdown-menu newsfeed-home">
-                                            <li><a href="index-2.html">Landing Page 1</a></li>
-                                            <li><a href="index-register.html">Landing Page 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li className="dropdown">
-                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newsfeed <span><img src="images/down-arrow.png" alt /></span></a>
-                                        <ul className="dropdown-menu newsfeed-home">
-                                            <li><a href="newsfeed.html">Newsfeed</a></li>
-                                            <li><a href="newsfeed-people-nearby.html">Poeple Nearly</a></li>
-                                            <li><a href="newsfeed-friends.html">My friends</a></li>
-                                            <li><a href="newsfeed-messages.html">Chatroom</a></li>
-                                            <li><a href="newsfeed-images.html">Images</a></li>
-                                            <li><a href="newsfeed-videos.html">Videos</a></li>
-                                        </ul>
-                                    </li>
-                                    <li className="dropdown">
-                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="images/down-arrow.png" alt /></span></a>
-                                        <ul className="dropdown-menu login">
-                                            <li><a href="timeline.html">Timeline</a></li>
-                                            <li><a href="timeline-about.html">Timeline About</a></li>
-                                            <li><a href="timeline-album.html">Timeline Album</a></li>
-                                            <li><a href="timeline-friends.html">Timeline Friends</a></li>
-                                            <li><a href="edit-profile-basic.html">Edit: Basic Info</a></li>
-                                            <li><a href="edit-profile-work-edu.html">Edit: Work</a></li>
-                                            <li><a href="edit-profile-interests.html">Edit: Interests</a></li>
-                                            <li><a href="edit-profile-settings.html">Account Settings</a></li>
-                                            <li><a href="edit-profile-password.html">Change Password</a></li>
-                                        </ul>
-                                    </li>
-                                    <li className="dropdown">
-                                        <a href="#" className="dropdown-toggle pages" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Pages <span><img src="images/down-arrow.png" alt /></span></a>
-                                        <ul className="dropdown-menu page-list">
-                                            <li><a href="index-2.html">Landing Page 1</a></li>
-                                            <li><a href="index-register.html">Landing Page 2</a></li>
-                                            <li><a href="newsfeed.html">Newsfeed</a></li>
-                                            <li><a href="newsfeed-people-nearby.html">Poeple Nearly</a></li>
-                                            <li><a href="newsfeed-friends.html">My friends</a></li>
-                                            <li><a href="newsfeed-messages.html">Chatroom</a></li>
-                                            <li><a href="newsfeed-images.html">Images</a></li>
-                                            <li><a href="newsfeed-videos.html">Videos</a></li>
-                                            <li><a href="timeline.html">Timeline</a></li>
-                                            <li><a href="timeline-about.html">Timeline About</a></li>
-                                            <li><a href="timeline-album.html">Timeline Album</a></li>
-                                            <li><a href="timeline-friends.html">Timeline Friends</a></li>
-                                            <li><a href="edit-profile-basic.html">Edit Profile</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="faq.html">FAQ Page</a></li>
-                                            <li><a href="404.html">404 Not Found</a></li>
-                                        </ul>
-                                    </li>
-                                    <li className="dropdown"><a href="contact.html">Contact</a></li>
-                                </ul>
-                                <form className="navbar-form navbar-right hidden-sm">
-                                    <div className="form-group">
-                                        <i className="icon ion-android-search" />
-                                        <input type="text" className="form-control" placeholder="Search friends, photos, videos" />
-                                    </div>
-                                </form>
-                            </div>{/* /.navbar-collapse */}
                         </div>{/* /.container */}
                     </nav>
                 </header>
@@ -94,7 +30,7 @@ class login extends Component {
                             <div className="col-sm-5">
                                 <div className="intro-texts">
                                     <h1 className="text-white">Make Cool Friends !!!</h1>
-                                    <p>Friend Finder is a social network template that can be used to connect people. The template offers Landing pages, News Feed, Image/Video Feed, Chat Box, Timeline and lot more. <br /> <br />Why are you waiting for? Buy it now.</p>
+                                    <p>Socialize is a social network template that can be used to connect people. The template offers Landing pages, News Feed, Image/Video Feed, Chat Box, Timeline and lot more. <br /> <br />Why are you waiting for? Buy it now.</p>
                                     <button className="btn btn-primary">Learn More</button>
                                 </div>
                             </div>
@@ -493,8 +429,8 @@ class login extends Component {
                                             <form name="Login_form" id="Login_form">
                                                 <div className="row">
                                                     <div className="form-group col-xs-12">
-                                                        <label htmlFor="my-email" className="sr-only">Email</label>
-                                                        <input id="my-email" className="form-control input-group-lg" type="text" name="Email" title="Enter Email" placeholder="Your Email" />
+                                                        <label htmlFor="my-email" className="sr-only">Private Key</label>
+                                                        <input id="my-email" className="form-control input-group-lg" type="text" name="Email" title="Enter Private Key" placeholder="Your Private Key" />
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -505,7 +441,9 @@ class login extends Component {
                                                 </div>
                                             </form>{/*Login Form Ends*/}
                                             <p><a href="#">Forgot Password?</a></p>
-                                            <button className="btn btn-primary">Login Now</button>
+                                            <Link to={`/newfeed`}>
+                                                <button className="btn btn-primary">Login Now</button>
+                                            </Link>         
                                         </div>
                                     </div>
                                 </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class covertimeline extends Component {
     render() {
@@ -9,18 +10,18 @@ class covertimeline extends Component {
                     <div className="row">
                         <div className="col-md-3">
                             <div className="profile-info">
-                                <img src="images/users/user-1.jpg" alt className="img-responsive profile-photo" />
+                                <img src="images/users/user-1.jpg" alt="" className="img-responsive profile-photo" />
                                 <h3>Sarah Cruiz</h3>
                                 <p className="text-muted">Creative Director</p>
                             </div>
                         </div>
                         <div className="col-md-9">
                             <ul className="list-inline profile-menu">
-                                <li><a href="timeline.html" className="active">Timeline</a></li>
-                                <li><a href="timeline-about.html">About</a></li>
-                                <li><a href="timeline-album.html">Album</a></li>
-                                <li><a href="timeline-friends.html">Following</a></li>
-                                <li><a href="#">Followers</a></li>
+                                <li><Link className="active" to={`/timeline`}>Timeline</Link></li>
+                                <li><Link to={`/timeabout`}>About</Link></li>
+                                <li><Link to={`/timephoto`}>Album</Link></li>
+                                <li><Link to={`/following`}>Following</Link></li>
+                                <li><Link to={`/followers`}>Followers</Link></li>
                             </ul>
                             <ul className="follow-me list-inline">
                                 <li>1,299 Following</li>
@@ -33,16 +34,17 @@ class covertimeline extends Component {
                 {/*Timeline Menu for Small Screens*/}
                 <div className="navbar-mobile hidden-lg hidden-md">
                     <div className="profile-info">
-                        <img src="images/users/user-1.jpg" alt className="img-responsive profile-photo" />
+                        <img src="images/users/user-1.jpg" alt="" className="img-responsive profile-photo" />
                         <h4>Sarah Cruiz</h4>
                         <p className="text-muted">Creative Director</p>
                     </div>
                     <div className="mobile-menu">
                         <ul className="list-inline">
-                            <li><a href="timline.html">Timeline</a></li>
-                            <li><a href="timeline-about.html" className="active">About</a></li>
-                            <li><a href="timeline-album.html">Album</a></li>
-                            <li><a href="timeline-friends.html">Friends</a></li>
+                            <li><Link className="active" to={`/timeline`}>Timeline</Link></li>
+                            <li><Link to={`/timeabout`}>About</Link></li>
+                            <li><Link to={`/timephoto`}>Album</Link></li>
+                            <li><Link to={`/following`}>Following</Link></li>
+                            <li><Link to={`/followers`}>Followers</Link></li>
                         </ul>
                         <button className="btn-primary">Add Friend</button>
                     </div>

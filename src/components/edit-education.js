@@ -3,6 +3,8 @@ import Header from './header';
 import Footer from './footer';
 import Activity from './activity';
 import CoverTimeline from './cover-timeline';
+import EditMenu from './editmenu';
+import { Link } from 'react-router-dom'
 
 class editeducation extends Component {
     render() {
@@ -16,13 +18,12 @@ class editeducation extends Component {
                     <div id="page-contents">
                         <div className="row">
                             <div className="col-md-3">
-                                {/*Edit Profile Menu*/}
                                 <ul className="edit-menu">
-                                    <li><i className="icon ion-ios-information-outline" /><a href="edit-profile-basic.html">Basic Information</a></li>
-                                    <li className="active"><i className="icon ion-ios-briefcase-outline" /><a href="edit-profile-work-edu.html">Education and Work</a></li>
-                                    <li><i className="icon ion-ios-heart-outline" /><a href="edit-profile-interests.html">My Interests</a></li>
-                                    <li><i className="icon ion-ios-settings" /><a href="edit-profile-settings.html">Account Settings</a></li>
-                                    <li><i className="icon ion-ios-locked-outline" /><a href="edit-profile-password.html">Change Password</a></li>
+                                    <li><i className="icon ion-ios-information-outline" /><Link to={`/basicEdit`}>Basic Information</Link></li>
+                                    <li className="active"><i className="icon ion-ios-briefcase-outline" /><Link to={`/educationEdit`}>Education And Work</Link></li>
+                                    <li><i className="icon ion-ios-heart-outline" /><Link to={`/interestEdit`}>My Interests</Link></li>
+                                    <li><i className="icon ion-ios-settings" /><Link to={`/accountEdit`}>Account Settings</Link></li>
+                                    <li><i className="icon ion-ios-locked-outline" /><Link to={`/passwordEdit`}>Change Password</Link></li>
                                 </ul>
                             </div>
                             <div className="col-md-7">
