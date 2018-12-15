@@ -1548,6 +1548,13 @@ ul.online-users li span.online-dot{
   position: relative;
 }
 
+.timeline-cover .over-balance {
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(20, 154, 201);
+  border: 1px solid black;
+  border-radius: 5px;
+}
 /*Timeline Menu for Large Screens*/
 
 .timeline-cover .timeline-nav-bar{

@@ -3,7 +3,6 @@ import Header from './header';
 import Footer from './footer';
 import Activity from './activity';
 import CoverTimeline from './cover-timeline';
-import EditMenu from './editmenu';
 import { Link } from 'react-router-dom'
 
 class editsetting extends Component {
