@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PostDate from './postdate';
 
 class status extends Component {
     render() {

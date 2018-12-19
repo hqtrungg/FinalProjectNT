@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Header from './header';
-import Footer from './footer';
-import PostBox from './postbox';
-import Status from './status';
-import FollowHint from './followhint'
-import { Link } from 'react-router-dom'
-
-class newfeed extends Component {
+import { Link } from 'react-router-dom';
+import Header from '../components/header';
+import Footer from '../components/footer';
+import PostBox from '../components/postbox';
+import Status from '../components/status';
+import FollowHint from '../components/followhint'
+ 
+class NewFeed extends Component {
     render() {
         return (
             <div>
@@ -30,7 +30,6 @@ class newfeed extends Component {
                                     <li><i className="icon ion-ios-paper" /><div><a href="#">My Newsfeed</a></div></li>
                                     <li><i className="icon ion-ios-people" /><div><a href="#">People Nearby</a></div></li>
                                     <li><i className="icon ion-images" /><div><a href="#">Images</a></div></li>
-                                    <li><i className="icon ion-ios-videocam" /><div><a href="#">Videos</a></div></li>
                                 </ul>
                             </div>
 
@@ -53,4 +52,4 @@ class newfeed extends Component {
     }
 }
 
-export default newfeed;
+export default NewFeed;

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom'
 
 class header extends Component {
+
+    editprofile = () => {
+        this.props.history.push('profile/edit')
+    }
     render() {
         return (
             <div>
@@ -33,20 +38,20 @@ class header extends Component {
                                     <li className="dropdown">
                                         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="images/down-arrow.png" alt="" /></span></a>
                                         <ul className="dropdown-menu login">
-                                            <li><Link to={`/timeline`}>Timeline</Link></li>
+                                            <li><Link to={`/profile`}>Timeline</Link></li>
                                             <li><Link to={`/timeabout`}>Timeline About</Link></li>
                                             <li><Link to={`/timephoto`}>Timeline Album</Link></li>
                                             <li><Link to={`/following`}>Following</Link></li>
                                             <li><Link to={`/followers`}>Followers</Link></li>
-                                            <li><Link to={`/edit`}>Edit Profile</Link></li>
+                                            
                                         </ul>
                                     </li>
                                     <li className="dropdown">
                                         <a href="#" className="dropdown-toggle pages" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Pages <span><img src="images/down-arrow.png" alt="" /></span></a>
                                         <ul className="dropdown-menu page-list">
                                             <li><Link to={`/newfeed`}>Newsfeed</Link></li>
-                                            <li><Link to={`/timeline`}>Timeline</Link></li>
-                                            <li><Link to={`/edit`}>Edit Profile</Link></li>
+                                            <li><Link to={`/profile`}>Timeline</Link></li>
+                                            
                                             <li><a href="#">Contact Us</a></li>
                                             <li><a href="#">FAQ Page</a></li>
                                             <li><a href="#">404 Not Found</a></li>
@@ -70,4 +75,4 @@ class header extends Component {
     }
 }
 
-export default header;
+export default withRouter(header);
