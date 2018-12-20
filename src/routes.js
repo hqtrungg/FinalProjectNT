@@ -5,8 +5,7 @@ import FollowingList from './pages/FollowingList';
 import Login from './pages/Login';
 import NewFeed from './pages/NewFeed';
 import ProFile from './pages/Profile';
-import Test from './pages/Test'
-import NotFound from './pages/NotFound'
+import NotFound from './pages/NotFound';
 
 const routes = [
     {
@@ -21,13 +20,23 @@ const routes = [
     },
     {
         path: '/profile',
-        exact: true,
+        exact: false,
         main: () => <ProFile />
     },
     {
-        path: '/edit',
+        path: "/profile/edit",
         exact: false,
-        main: () => <EditProfile />
+        main: ({match}) => <EditProfile match={match}/>
+    },
+    {
+        path: 'profile/followers',
+        exact: false,
+        main: () => <FollowerList />
+    },
+    {
+        path: '/profile/following',
+        exact: false,
+        main: () => <FollowingList />
     },
     {
         path: '',

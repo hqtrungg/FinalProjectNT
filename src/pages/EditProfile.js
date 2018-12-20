@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -7,12 +8,14 @@ import { Link } from 'react-router-dom';
 
 class EditProfile extends Component {
     render() {
+        var {match} = this.props;
+        console.log(match);
         return (
             <div>
-                <Header />
+                <Header/>
                 <div className="container">
                     <div className="timeline">
-                        <CoverTimeline />
+                        <CoverTimeline/>
                     </div>
                     <div id="page-contents">
                         <div className="row">
@@ -37,7 +40,7 @@ class EditProfile extends Component {
                                                     <input id="firstname" className="form-control input-group-lg" type="text" name="firstname" title="Enter first name" placeholder="First name" defaultValue="John" />
                                                 </div>
                                                 <div className="form-group col-xs-6">
-                                                    <label htmlFor="lastname" className>Last name</label>
+                                                    <label htmlFor="lastname">Last name</label>
                                                     <input id="lastname" className="form-control input-group-lg" type="text" name="lastname" title="Enter last name" placeholder="Last name" defaultValue="Doe" />
                                                 </div>
                                             </div>
@@ -69,9 +72,9 @@ class EditProfile extends Component {
                                                         <option>14</option>
                                                         <option>15</option>
                                                         <option>16</option>
-                                                        <option>17</option>
+                                                        <option defaultValue>17</option>
                                                         <option>18</option>
-                                                        <option selected>19</option>
+                                                        <option>19</option>
                                                         <option>20</option>
                                                         <option>21</option>
                                                         <option>22</option>
@@ -98,22 +101,22 @@ class EditProfile extends Component {
                                                         <option>Jun</option>
                                                         <option>Jul</option>
                                                         <option>Aug</option>
-                                                        <option>Sep</option>
+                                                        <option defaultValue>Sep</option>
                                                         <option>Oct</option>
                                                         <option>Nov</option>
-                                                        <option selected>Dec</option>
+                                                        <option>Dec</option>
                                                     </select>
                                                 </div>
                                                 <div className="form-group col-sm-6 col-xs-12">
                                                     <label htmlFor="year" className="sr-only" />
                                                     <select className="form-control" id="year">
                                                         <option value="year">Year</option>
-                                                        <option selected>2000</option>
+                                                        <option>2000</option>
                                                         <option>2001</option>
                                                         <option>2002</option>
                                                         <option>2004</option>
                                                         <option>2005</option>
-                                                        <option>2006</option>
+                                                        <option defaultValue>2006</option>
                                                         <option>2007</option>
                                                         <option>2008</option>
                                                         <option>2009</option>
@@ -376,7 +379,7 @@ class EditProfile extends Component {
                                                         <option value="UKR">Ukraine</option>
                                                         <option value="ARE">United Arab Emirates</option>
                                                         <option value="GBR">United Kingdom</option>
-                                                        <option value="USA" selected>United States</option>
+                                                        <option value="USA" defaultValue>United States</option>
                                                         <option value="UMI">United States Minor Outlying Islands</option>
                                                         <option value="URY">Uruguay</option>
                                                         <option value="UZB">Uzbekistan</option>
@@ -404,11 +407,11 @@ class EditProfile extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <Activity />
+                            <Activity/>
                         </div>
                     </div>
                 </div>
-                <Footer />
+                <Footer/>
             </div>
         );
     }

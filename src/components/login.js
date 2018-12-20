@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 
@@ -77,7 +78,7 @@ class login extends Component {
                                                     <div className="form-group col-sm-3 col-xs-6">
                                                         <label htmlFor="month" className="sr-only" />
                                                         <select className="form-control" id="day">
-                                                            <option value="Day" disabled selected>Day</option>
+                                                            <option value="Day">Day</option>
                                                             <option>1</option>
                                                             <option>2</option>
                                                             <option>3</option>
@@ -114,7 +115,7 @@ class login extends Component {
                                                     <div className="form-group col-sm-3 col-xs-6">
                                                         <label htmlFor="month" className="sr-only" />
                                                         <select className="form-control" id="month">
-                                                            <option value="month" disabled selected>Month</option>
+                                                            <option value="month">Month</option>
                                                             <option>Jan</option>
                                                             <option>Feb</option>
                                                             <option>Mar</option>
@@ -132,7 +133,7 @@ class login extends Component {
                                                     <div className="form-group col-sm-6 col-xs-12">
                                                         <label htmlFor="year" className="sr-only" />
                                                         <select className="form-control" id="year">
-                                                            <option value="year" disabled selected>Year</option>
+                                                            <option value="year">Year</option>
                                                             <option>2000</option>
                                                             <option>2001</option>
                                                             <option>2002</option>
@@ -164,7 +165,7 @@ class login extends Component {
                                                     <div className="form-group col-xs-6">
                                                         <label htmlFor="country" className="sr-only" />
                                                         <select className="form-control" id="country">
-                                                            <option value="country" disabled selected>Country</option>
+                                                            <option value="country">Country</option>
                                                             <option value="AFG">Afghanistan</option>
                                                             <option value="ALA">�land Islands</option>
                                                             <option value="ALB">Albania</option>

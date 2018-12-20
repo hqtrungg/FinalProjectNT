@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import {TIMELINE, TIMEABOUT, TIMEPHOTO, FOLLOWERS, FOLLOWING} from '../constants/Timeline';
@@ -21,11 +22,11 @@ class covertimeline extends Component {
                         </div>
                         <div className="col-md-9">
                             <ul className="list-inline profile-menu">
-                                <li><Link className={this.props.component === TIMELINE ? "active" : ""} to={`/timeline`}>Timeline</Link></li>
+                                <li><Link className={this.props.component === TIMELINE ? "active" : ""} to={`/profile`}>Timeline</Link></li>
                                 <li><Link className={this.props.component === TIMEABOUT ? "active" : ""} to={`/timeabout`}>About</Link></li>
                                 <li><Link className={this.props.component === TIMEPHOTO ? "active" : ""} to={`/timephoto`}>Album</Link></li>
-                                <li><Link className={this.props.component === FOLLOWING ? "active" : ""} to={`/following`}>Following</Link></li>
-                                <li><Link className={this.props.component === FOLLOWERS ? "active" : ""} to={`/followers`}>Followers</Link></li>
+                                <li><Link className={this.props.component === FOLLOWING ? "active" : ""} to={`/profile/following`}>Following</Link></li>
+                                <li><Link className={this.props.component === FOLLOWERS ? "active" : ""} to={`/profile/follower`}>Followers</Link></li>
                             </ul>
                             <ul className="follow-me list-inline">
                                 <li>{account.following} Following</li>
@@ -44,11 +45,11 @@ class covertimeline extends Component {
                     </div>
                     <div className="mobile-menu">
                         <ul className="list-inline">
-                            <li><Link className="active" to={`/timeline`}>Timeline</Link></li>
+                            <li><Link className="active" to={`/profile`}>Timeline</Link></li>
                             <li><Link to={`/timeabout`}>About</Link></li>
                             <li><Link to={`/timephoto`}>Album</Link></li>
-                            <li><Link to={`/following`}>Following</Link></li>
-                            <li><Link to={`/followers`}>Followers</Link></li>
+                            <li><Link to={`/profile/following`}>Following</Link></li>
+                            <li><Link to={`/profile/followers`}>Followers</Link></li>
                         </ul>
                         <button className="btn-primary">Add Friend</button>
                     </div>

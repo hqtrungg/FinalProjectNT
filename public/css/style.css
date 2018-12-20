@@ -443,6 +443,9 @@ textarea{
   border: 0;
 }
 
+.navbar-default .navbar-form {
+  margin-right: 80px;
+}
 /*For Homepage Header | Display on Scroll*/
 
 #header.lazy-load{

@@ -1,9 +1,11 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import Header from './header';
 import Footer from './footer';
 import Activity from './activity';
 import CoverTimeline from './cover-timeline';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 
 class editinterestinfo extends Component {
     render() {
