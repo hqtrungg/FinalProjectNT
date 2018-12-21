@@ -27,21 +27,19 @@ class header extends Component {
                                         <ul className="dropdown-menu newsfeed-home">
                                             <li><Link to={`/newfeed`}>Newsfeed</Link></li>
                                             <li><Link to={`/profile/followers`}>Followers</Link></li>
-                                            <li><a href="#">Images</a></li>
                                         </ul>
                                     </li>
                                     <li className="dropdown">
                                         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="/images/down-arrow.png" alt="" /></span></a>
                                         <ul className="dropdown-menu login">
-                                            <li><Link to={`/profile`}>Timeline</Link></li>
-                                            <li><Link to={`/timeabout`}>Timeline About</Link></li>
-                                            <li><Link to={`/timephoto`}>Timeline Album</Link></li>
+                                            <li><Link to={`/profile`}>Profile</Link></li>
                                             <li><Link to={`/profile/following`}>Following</Link></li>
                                             <li><Link to={`/profile/followers`}>Followers</Link></li>
                                             <li><Link to="/profile/edit">Edit Profile</Link></li>
+                                            
                                         </ul>
                                     </li>
-                                    <li className="dropdown"><a href="#">Contact</a></li>
+                                    <li className="dropdown"><Link to={`/`}>Sign Out</Link></li>
                                 </ul>
                                 <form className="navbar-form navbar-right hidden-sm">
                                     <div className="form-group">

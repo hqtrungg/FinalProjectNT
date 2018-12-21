@@ -25,8 +25,7 @@ class footer extends Component {
                                         <li><a href="#">Signup</a></li>
                                         <li><a href="#">login</a></li>
                                         <li><a href="#">Explore</a></li>
-                                        <li><a href="#">Features</a></li>
-                                        <li><a href="#">Language settings</a></li>
+                                        
                                     </ul>
                                 </div>
                                 <div className="col-md-2 col-sm-2">
@@ -34,10 +33,7 @@ class footer extends Component {
                                     <ul className="footer-links">
                                         <li><a href="#">Business signup</a></li>
                                         <li><a href="#">Business login</a></li>
-                                        <li><a href="#">Benefits</a></li>
-                                        <li><a href="#">Resources</a></li>
-                                        <li><a href="#">Advertise</a></li>
-                                        <li><a href="#">Setup</a></li>
+                                        
                                     </ul>
                                 </div>
                                 <div className="col-md-2 col-sm-2">

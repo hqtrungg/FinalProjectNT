@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import {TIMELINE, TIMEABOUT, TIMEPHOTO, FOLLOWERS, FOLLOWING} from '../constants/Timeline';
+import {TIMELINE, EDIT, FOLLOWERS, FOLLOWING, WALLET} from '../constants/Timeline';
 import { connect } from 'react-redux';
 
 class covertimeline extends Component {
@@ -17,21 +17,20 @@ class covertimeline extends Component {
                                 <img src={account.avatar} alt="" className="img-responsive profile-photo" />
                                 <h3>{account.name}</h3>
                                 <p className="text-muted">{account.job}</p>
-                                <p className="over-balance">{account.overbalance}</p>
                             </div>
                         </div>
                         <div className="col-md-9">
                             <ul className="list-inline profile-menu">
-                                <li><Link className={this.props.component === TIMELINE ? "active" : ""} to={`/profile`}>Timeline</Link></li>
-                                <li><Link className={this.props.component === TIMEABOUT ? "active" : ""} to={`/timeabout`}>About</Link></li>
-                                <li><Link className={this.props.component === TIMEPHOTO ? "active" : ""} to={`/timephoto`}>Album</Link></li>
+                                <li><Link className={this.props.component === TIMELINE ? "active" : ""} to={`/profile`}>Profile</Link></li>
                                 <li><Link className={this.props.component === FOLLOWING ? "active" : ""} to={`/profile/following`}>Following</Link></li>
-                                <li><Link className={this.props.component === FOLLOWERS ? "active" : ""} to={`/profile/follower`}>Followers</Link></li>
+                                <li><Link className={this.props.component === FOLLOWERS ? "active" : ""} to={`/profile/followers`}>Followers</Link></li>
+                                <li><Link className={this.props.component === EDIT ? "active" : ""} to={`/profile/edit`}>Edit Profile</Link></li>
+                                <li><Link className={this.props.component === WALLET ? "active" : ""} to={`/profile/wallet`}>Wallet</Link></li>
                             </ul>
                             <ul className="follow-me list-inline">
                                 <li>{account.following} Following</li>
                                 <li>{account.followers} Followers</li>
-                                <li><button className="btn-primary">Add Friend</button></li>
+                                <li><button className="btn-primary">Follow</button></li>
                             </ul>
                         </div>
                     </div>
@@ -46,8 +45,8 @@ class covertimeline extends Component {
                     <div className="mobile-menu">
                         <ul className="list-inline">
                             <li><Link className="active" to={`/profile`}>Timeline</Link></li>
-                            <li><Link to={`/timeabout`}>About</Link></li>
-                            <li><Link to={`/timephoto`}>Album</Link></li>
+                            <li><Link to={`/profile/about`}>About</Link></li>
+                            <li><Link to={`/profile/album`}>Album</Link></li>
                             <li><Link to={`/profile/following`}>Following</Link></li>
                             <li><Link to={`/profile/followers`}>Followers</Link></li>
                         </ul>

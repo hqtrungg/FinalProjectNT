@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import Activity from '../components/activity';
 import CoverTimeline from '../components/cover-timeline';
 import { FOLLOWING } from '../constants/Timeline'
 
@@ -144,7 +143,6 @@ class FollowingList extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <Activity />
                         </div>
                     </div>
                 </div>
