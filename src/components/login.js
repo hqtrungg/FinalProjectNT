@@ -1,8 +1,55 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+const { Keypair } = require('stellar-base');
+var base64 = require('base-64');
 
 class login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            PublicKey: '',
+            PrivateKey: '',
+            isFilled: false,
+        }
+    }
+
+    onGetKey = () => {
+        const key = Keypair.random();
+        this.setState({
+            PublicKey: key.publicKey(),
+            PrivateKey: key.secret(),
+            isFilled: true
+        })
+    }
+
+    encode = (key) => {
+        var encodeKey = base64.encode(key);
+        console.log(encodeKey);
+        return encodeKey;
+    }
+
+    localSave = (key1, key2) => {
+        if(localStorage){
+            localStorage.setItem('private', this.encode(key1));
+            localStorage.setItem('public', this.encode(key2));
+        }
+        else{
+            return null;
+        }
+    }
+
+    OnChangeHandler = (e) => {
+        this.setState({
+            PublicKey: e.target.value
+        })
+    }
+    alert = () => {
+        this.state.isFilled ? alert("Success!") : alert("Failed");
+        this.setState({
+            isFilled: !this.state.isFilled
+        })
+    }
     render() {
         return (
             <div>
@@ -52,13 +99,23 @@ class login extends Component {
                                             <form name="registration_form" id="registration_form" className="form-inline">
                                                 <div className="row">
                                                     <div className="form-group col-xs-12">
-                                                        <label htmlFor="my-email" className="sr-only">Private Key</label>
-                                                        <input id="my-email" className="form-control input-group-lg" type="text" name="Email" title="Enter Private Key" placeholder="Your Private Key" />
+                                                        <label htmlFor="exampleInputEmail1">Private Key</label>
+                                                        <input id="my-email" className="form-control input-group-lg" type="text" name="PrivateKey" title="Enter Private Key"
+                                                            value={this.state.isFilled ? this.state.PrivateKey : ''} readOnly />
+                                                    </div>
+                                                </div>
+                                                <div className="row">
+                                                    <div className="form-group col-xs-12">
+                                                        <label htmlFor="exampleInputEmail1">Public Key</label>
+                                                        <input id="my-email" className="form-control input-group-lg" type="text" name="PublicKey" title="Enter Public Key"
+                                                            value={this.state.isFilled ? this.state.PublicKey : ''} readOnly />
                                                     </div>
                                                 </div>
                                             </form>{/*Register Now Form Ends*/}
-                                            
-                                            <button className="btn btn-primary">Generate Key Now</button>
+
+                                            <button className="btn btn-primary" onClick={this.onGetKey}>Generate Key Now</button>
+                                            <button className="btn btn-success" style={{ borderRadius: '30px' }} onClick={this.alert}>Register</button>
+
                                         </div>{/*Registration Form Contents Ends*/}
                                         {/*Login*/}
                                         <div className="tab-pane" id="login">
@@ -69,14 +126,15 @@ class login extends Component {
                                                 <div className="row">
                                                     <div className="form-group col-xs-12">
                                                         <label htmlFor="my-email" className="sr-only">Private Key</label>
-                                                        <input id="my-email" className="form-control input-group-lg" type="text" name="Email" title="Enter Private Key" placeholder="Your Private Key" />
+                                                        <input id="my-email" className="form-control input-group-lg" type="text" name="Email" title="Enter Private Key" 
+                                                            value={!this.state.isFilled ? this.state.PublicKey : '  '} onChange={this.OnChangeHandler}/>
                                                     </div>
                                                 </div>
 
                                             </form>{/*Login Form Ends*/}
 
                                             <Link to={`/newfeed`}>
-                                                <button className="btn btn-primary">Login Now</button>
+                                                <button className="btn btn-primary" onClick={this.localSave(this.state.PrivateKey, this.state.PublicKey)}>Login Now</button>
                                             </Link>
                                         </div>
                                     </div>

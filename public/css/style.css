@@ -444,7 +444,7 @@ textarea{
 }
 
 .navbar-default .navbar-form {
-  margin-right: 80px;
+  margin-right: 120px;
 }
 /*For Homepage Header | Display on Scroll*/
 
@@ -2729,3 +2729,11 @@ ul.contact li i{
   top: 50%;
   transform: translateY(-50%);
 }
+.badge-notify{
+  background: gray;
+  position:relative;
+  font-size: 10px;
+  top: -10px;
+  left: -20px;
+}
+

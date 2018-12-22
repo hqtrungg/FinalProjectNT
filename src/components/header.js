@@ -1,8 +1,11 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class header extends Component {
+    localRemove = () => {
+        localStorage.clear();
+    }
     render() {
         return (
             <div>
@@ -23,10 +26,35 @@ class header extends Component {
                             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul className="nav navbar-nav navbar-right main-menu">
                                     <li className="dropdown">
-                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newsfeed <span><img src="/images/down-arrow.png" alt="" /></span></a>
-                                        <ul className="dropdown-menu newsfeed-home">
-                                            <li><Link to={`/newfeed`}>Newsfeed</Link></li>
-                                            <li><Link to={`/profile/followers`}>Followers</Link></li>
+                                        <button className="btn btn-default btn-lg btn-link" style={{ fontSize: '18px', marginTop: '5px' }} type="button" data-toggle="dropdown">
+                                            <span className="fa fa-bell" style={{ color: 'white' }}></span>
+                                        </button>
+                                        {/* <span className="badge badge-notify">3</span> */}
+                                        <ul className="dropdown-menu">
+                                            <li>
+                                                <a className="content" href="#">
+                                                    <div className="notification-item">
+                                                        <h4 className="item-title"><img src='/images/users/user-1.jpg' style={{width: '50px', height: '50px'}}/>Sarah · day ago</h4>
+                                                        <p className="item-info">Marketing 101, Video Assignment</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a className="content" href="#">
+                                                    <div className="notification-item">
+                                                        <h4 className="item-title"><img src='/images/users/user-2.jpg' style={{width: '50px', height: '50px'}}/>Evaluation Deadline 1 · day ago</h4>
+                                                        <p className="item-info">Marketing 101, Video Assignment</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a className="content" href="#">
+                                                    <div className="notification-item">
+                                                        <h4 className="item-title"><img src='/images/users/user-3.jpg' style={{width: '50px', height: '50px'}}/>Evaluation Deadline 1 · day ago</h4>
+                                                        <p className="item-info">Marketing 101, Video Assignment</p>
+                                                    </div>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li className="dropdown">
@@ -36,10 +64,10 @@ class header extends Component {
                                             <li><Link to={`/profile/following`}>Following</Link></li>
                                             <li><Link to={`/profile/followers`}>Followers</Link></li>
                                             <li><Link to="/profile/edit">Edit Profile</Link></li>
-                                            
+
                                         </ul>
                                     </li>
-                                    <li className="dropdown"><Link to={`/`}>Sign Out</Link></li>
+                                    <li className="dropdown"><Link to={`/`} onClick={this.localRemove()}>Sign Out</Link></li>
                                 </ul>
                                 <form className="navbar-form navbar-right hidden-sm">
                                     <div className="form-group">
