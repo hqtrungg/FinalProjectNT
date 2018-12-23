@@ -3,10 +3,14 @@ import React, { Component } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import CoverTimeline from '../components/cover-timeline';
-import { FOLLOWERS } from '../constants/Timeline'
+import { FOLLOWERS } from '../constants/Timeline';
+import TimelineFollowers from '../components/timeline-followers';
+import { connect } from 'react-redux'
+import { actFetchFollowerListRequest } from '../actions';
 
 class FollowerList extends Component {
     render() {
+        var {follows} = this.props;
         return (
             <div>
                 <Header />
@@ -20,123 +24,7 @@ class FollowerList extends Component {
                             <div className="col-md-7">
                                 <div className="friend-list">
                                     <div className="row">
-                                        <div className="col-md-6 col-sm-6">
-                                            <div className="friend-card">
-                                                <img src="/images/covers/1.jpg" alt="profile-cover" className="img-responsive cover" />
-                                                <div className="card-info">
-                                                    <img src="/images/users/user-3.jpg" alt="user" className="profile-photo-lg" />
-                                                    <div className="friend-info">
-                                                        <a href="#" className="pull-right text-green">My Friend</a>
-                                                        <h5><a href="timeline.html" className="profile-link">Sophia Lee</a></h5>
-                                                        <p>Student at Harvard</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6 col-sm-6">
-                                            <div className="friend-card">
-                                                <img src="/images/covers/3.jpg" alt="profile-cover" className="img-responsive cover" />
-                                                <div className="card-info">
-                                                    <img src="/images/users/user-4.jpg" alt="user" className="profile-photo-lg" />
-                                                    <div className="friend-info">
-                                                        <a href="#" className="pull-right text-green">My Friend</a>
-                                                        <h5><a href="timeline.html" className="profile-link">John Doe</a></h5>
-                                                        <p>Traveler</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6 col-sm-6">
-                                            <div className="friend-card">
-                                                <img src="/images/covers/4.jpg" alt="profile-cover" className="img-responsive cover" />
-                                                <div className="card-info">
-                                                    <img src="/images/users/user-10.jpg" alt="user" className="profile-photo-lg" />
-                                                    <div className="friend-info">
-                                                        <a href="timeline.html" className="pull-right text-green">My Friend</a>
-                                                        <h5><a href="#" className="profile-link">Julia Cox</a></h5>
-                                                        <p>Art Designer</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6 col-sm-6">
-                                            <div className="friend-card">
-                                                <img src="/images/covers/5.jpg" alt="profile-cover" className="img-responsive cover" />
-                                                <div className="card-info">
-                                                    <img src="/images/users/user-7.jpg" alt="user" className="profile-photo-lg" />
-                                                    <div className="friend-info">
-                                                        <a href="#" className="pull-right text-green">My Friend</a>
-                                                        <h5><a href="timelime.html" className="profile-link">Robert Cook</a></h5>
-                                                        <p>Photographer at Photography</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6 col-sm-6">
-                                            <div className="friend-card">
-                                                <img src="/images/covers/6.jpg" alt="profile-cover" className="img-responsive cover" />
-                                                <div className="card-info">
-                                                    <img src="/images/users/user-8.jpg" alt="user" className="profile-photo-lg" />
-                                                    <div className="friend-info">
-                                                        <a href="#" className="pull-right text-green">My Friend</a>
-                                                        <h5><a href="timeline.html" className="profile-link">Richard Bell</a></h5>
-                                                        <p>Graphic Designer at Envato</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6 col-sm-6">
-                                            <div className="friend-card">
-                                                <img src="/images/covers/7.jpg" alt="profile-cover" className="img-responsive cover" />
-                                                <div className="card-info">
-                                                    <img src="/images/users/user-2.jpg" alt="user" className="profile-photo-lg" />
-                                                    <div className="friend-info">
-                                                        <a href="#" className="pull-right text-green">My Friend</a>
-                                                        <h5><a href="timeline.html" className="profile-link">Linda Lohan</a></h5>
-                                                        <p>Software Engineer</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6 col-sm-6">
-                                            <div className="friend-card">
-                                                <img src="/images/covers/8.jpg" alt="profile-cover" className="img-responsive cover" />
-                                                <div className="card-info">
-                                                    <img src="/images/users/user-9.jpg" alt="user" className="profile-photo-lg" />
-                                                    <div className="friend-info">
-                                                        <a href="#" className="pull-right text-green">My Friend</a>
-                                                        <h5><a href="timeline.html" className="profile-link">Anna Young</a></h5>
-                                                        <p>Musician</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6 col-sm-6">
-                                            <div className="friend-card">
-                                                <img src="/images/covers/9.jpg" alt="profile-cover" className="img-responsive cover" />
-                                                <div className="card-info">
-                                                    <img src="/images/users/user-6.jpg" alt="user" className="profile-photo-lg" />
-                                                    <div className="friend-info">
-                                                        <a href="#" className="pull-right text-green">My Friend</a>
-                                                        <h5><a href="timeline.html" className="profile-link">James Carter</a></h5>
-                                                        <p>CEO at IT Farm</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6 col-sm-6">
-                                            <div className="friend-card">
-                                                <img src="/images/covers/10.jpg" alt="profile-cover" className="img-responsive cover" />
-                                                <div className="card-info">
-                                                    <img src="/images/users/user-5.jpg" alt="user" className="profile-photo-lg" />
-                                                    <div className="friend-info">
-                                                        <a href="#" className="pull-right text-green">My Friend</a>
-                                                        <h5><a href="timeline.html" className="profile-link">Alexis Clark</a></h5>
-                                                        <p>Traveler</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {this.showFollowerList(follows)}
                                     </div>
                                 </div>
                             </div>
@@ -147,6 +35,29 @@ class FollowerList extends Component {
             </div>
         );
     }
+
+    showFollowerList(follows){
+        var result = null;
+        if(follows.length > 0){
+            result = follows.map((follow, index) => {
+                return <TimelineFollowers key={index} follow={follow}/>
+            })
+        }
+        return result;
+    }
 }
 
-export default FollowerList;
+const mapStateToProps = (state) => {
+    return {
+        follows: state.follows
+    }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        fetchFollowerList: () => {
+            dispatch(actFetchFollowerListRequest())
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(FollowerList);

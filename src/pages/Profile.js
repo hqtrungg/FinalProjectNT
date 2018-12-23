@@ -7,7 +7,8 @@ import CoverTimeline from '../components/cover-timeline';
 import PostBox from '../components/postbox';
 import Status from '../components/status';
 import {TIMELINE} from '../constants/Timeline';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { actFetchProfileInfo } from '../actions/index';
 
 class Profile extends Component {
     render() {
