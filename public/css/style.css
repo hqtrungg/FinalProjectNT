@@ -1222,6 +1222,47 @@ ul.online-users li span.online-dot{
   color: #27aae1;
 }
 
+.create-post .upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.create-post .btn-upload {
+  border: 2px solid #27aae1;
+  color: #27aae1;
+  background-color: white;
+  padding: 2px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.create-post .btn:hover {
+  color: white;
+  background-color: green;
+}
+
+.create-post .btn {
+  border: 2px solid green;
+  color: green;
+  background-color: white;
+  padding: 5px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.create-post .upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
 
 /*==================================================
   Post Contents CSS
@@ -1247,7 +1288,7 @@ ul.online-users li span.online-dot{
 }
 
 .post-content .post-container{
-  padding: 20px;
+  padding: 5px 20px 20px 20px;
 }
 
 .post-content .post-container .post-detail{

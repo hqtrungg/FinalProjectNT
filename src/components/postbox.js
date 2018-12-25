@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class postbox extends Component {
     render() {
         return (
-            <div className = "create-post">
+            <div className="create-post">
                 <div className="row">
                     <div className="col-md-7 col-sm-7">
                         <div className="form-group">
@@ -15,12 +15,12 @@ class postbox extends Component {
                     <div className="col-md-5 col-sm-5">
                         <div className="tools">
                             <ul className="publishing-tools list-inline">
-                                <li><a href="#"><i className="ion-compose" /></a></li>
-                                <li><a href="#"><i className="ion-images" /></a></li>
-                                <li><a href="#"><i className="ion-ios-videocam" /></a></li>
-                                <li><a href="#"><i className="ion-map" /></a></li>
+                                <div className="upload-btn-wrapper">
+                                    <button className="btn-upload">Upload a file</button>
+                                    <input type="file" name="myfile" />
+                                </div>
+                                <button className="btn btn-primary pull-right">Publish</button>
                             </ul>
-                            <button className="btn btn-primary pull-right">Publish</button>
                         </div>
                     </div>
                 </div>
