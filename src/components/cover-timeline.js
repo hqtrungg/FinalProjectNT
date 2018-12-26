@@ -3,25 +3,38 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { TIMELINE, EDIT, FOLLOWERS, FOLLOWING, WALLET } from '../constants/Timeline';
 import { connect } from 'react-redux';
-import Avatar from 'react-avatar-edit';
-import ImageUploader from 'react-images-upload';
 
 class covertimeline extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pictures: []
+            file: '',
+            imagePreview: ''
         };
-        this.onDrop = this.onDrop.bind(this);
     }
 
-    onDrop(picture) {
-        this.setState({
-            pictures: this.state.pictures.concat(picture),
-        });
+    _handleSubmit(e) {
+        e.preventDefault();
     }
 
+    _handleImageChange(e) {
+        e.preventDefault();
+
+        let Reader = new FileReader();
+        let file = e.target.files[0];
+        console.log(this.state.imagePreview)
+        Reader.onloadend = () => {
+            this.setState({
+                file: file,
+                imagePreviewUrl: Reader.result
+            });
+        }
+        Reader.readAsDataURL(file)
+    }
     render() {
+        let { imagePreviewUrl } = this.state;
+        let $imagePreview = null;
+        $imagePreview = (<img src={imagePreviewUrl} alt="" className="img-responsive profile-photo" ></img>);
         var id = localStorage.getItem('public');
         var { account } = this.props;
         return (
@@ -31,17 +44,14 @@ class covertimeline extends Component {
                     <div className="row">
                         <div className="col-md-3">
                             <div className="profile-info">
-                                <img src={account.avatar} alt="" className="img-responsive profile-photo" ></img>
+                                {$imagePreview}
                                 <h3>{account.name}</h3>
                                 <p className="text-muted">{account.job}</p>
-                                <ImageUploader
-                                    withIcon={false}
-                                    buttonText='Change avatar'
-                                    onChange={this.onDrop}
-                                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                                    maxFileSize={5242880}
-                                    label={null}
-                                />
+                                <div className="previewComponent">
+                                    <form onSubmit={(e) => this._handleSubmit(e)}>
+                                        <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)} />
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <div className="col-md-9">

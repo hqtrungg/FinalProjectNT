@@ -1262,6 +1262,8 @@ ul.online-users li span.online-dot{
   left: 0;
   top: 0;
   opacity: 0;
+  width: 125px;
+  height: 34px;
 }
 
 /*==================================================
@@ -1630,7 +1632,7 @@ ul.online-users li span.online-dot{
   border: 10px solid #fff;
   opacity: 0.5;
   cursor: pointer;
-  
+
 }
 
 .timeline-cover .timeline-nav-bar ul.profile-menu{
@@ -1718,6 +1720,18 @@ ul.online-users li span.online-dot{
 
 .timeline-cover .navbar-mobile .mobile-menu ul li a.active{
   color: #27aae1;
+}
+
+.timeline-cover .previewComponent input[type=file] {
+  font-size: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  margin-left: 20px;
+  cursor: pointer;
 }
 
 
