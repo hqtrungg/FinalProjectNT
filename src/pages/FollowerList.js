@@ -10,7 +10,7 @@ import { actFetchFollowerListRequest } from '../actions';
 
 class FollowerList extends Component {
     render() {
-        var {follows} = this.props;
+        var { follows } = this.props;
         return (
             <div>
                 <Header />
@@ -21,11 +21,33 @@ class FollowerList extends Component {
                     <div id="page-contents">
                         <div className="row">
                             <div className="col-md-3"></div>
-                            <div className="col-md-7">
+                            <div className="col-md-6">
                                 <div className="friend-list">
                                     <div className="row">
                                         {this.showFollowerList(follows)}
                                     </div>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className="col-md-3">
+                                    <nav aria-label="..." style={{ marginRight: '0px', right: '0px' }}>
+                                        <ul className="pagination">
+                                            <li className="page-item disabled">
+                                                <span className="page-link">Previous</span>
+                                            </li>
+                                            <li className="page-item"><a className="page-link" href="#">1</a></li>
+                                            <li className="page-item active">
+                                                <span className="page-link">
+                                                    2
+                                            <span className="sr-only">(current)</span>
+                                                </span>
+                                            </li>
+                                            <li className="page-item"><a className="page-link" href="#">3</a></li>
+                                            <li className="page-item">
+                                                <a className="page-link" href="#">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
@@ -36,11 +58,11 @@ class FollowerList extends Component {
         );
     }
 
-    showFollowerList(follows){
+    showFollowerList(follows) {
         var result = null;
-        if(follows.length > 0){
+        if (follows.length > 0) {
             result = follows.map((follow, index) => {
-                return <TimelineFollowers key={index} follow={follow}/>
+                return <TimelineFollowers key={index} follow={follow} />
             })
         }
         return result;

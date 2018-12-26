@@ -1,7 +1,22 @@
 import * as Types from '../constants/ActionTypes'
 
 var initialState = [
-    
+    {
+        avatar: '',
+        name: 'Sara',
+    },
+    {
+        avatar: '',
+        name: 'Sara',
+    },
+    {
+        avatar: '',
+        name: 'Sara',
+    },
+    {
+        avatar: '',
+        name: 'Sara',
+    },
 ];
 
 const follows = (state = initialState, action) => {

@@ -13,7 +13,12 @@ class status extends Component {
 
     _handleKeyPress = (event) => {
         if (event.key == 'Enter') {
-            <Comments comments={this.state.comments}/>
+            return(
+                <div className="post-comment">
+                    <img src="images/users/user-11.jpg" alt="" className="profile-photo-sm" />
+                    <p><a href="timeline.html" className="profile-link">Diana </a><i className="em em-laughing" />{this.state.comments}</p>
+                </div>
+            );
         }
     }
 
@@ -31,6 +36,8 @@ class status extends Component {
         )
     }
     render() {
+        var {contents} = this.props;
+        console.log(contents);
         return (
             <div className="post-content">
                 <img src="images/post-images/12.jpg" alt="post-image" className="img-responsive post-image" />
@@ -50,10 +57,9 @@ class status extends Component {
                         </div>
                         <div className="line-divider" />
                         <div className="post-text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <i className="em em-anguished" /> <i className="em em-anguished" /> <i className="em em-anguished" /></p>
+                            <p>{contents}<i className="em em-anguished" /> <i className="em em-anguished" /> <i className="em em-anguished" /></p>
                         </div>
                         <div className="line-divider" />
-                        {this._handleKeyPress}
                         <div className="post-comment">
                             <img src="images/users/user-1.jpg" alt="" className="profile-photo-sm" />
                             <input type="text" className="form-control" placeholder="Post a comment" onKeyPress={this._handleKeyPress} onChange={this.updateInputValue} />
