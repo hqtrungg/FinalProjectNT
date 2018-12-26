@@ -66,8 +66,12 @@ class FollowingList extends Component {
     }
 
     onUnFollow = (id) => {
-        this.props.actSetFollowingList(this.props.follows);
-        
+        var {follows} = this.props;
+        var filterArray = follows.filter(item => {return item.address !== id})
+        var result = filterArray.map((item, index) => {
+            return <TimelineFollowing key={index} follow={item} />
+        })
+        return result;
     }
 
     showFollowingList(follows){

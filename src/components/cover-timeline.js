@@ -21,8 +21,7 @@ class covertimeline extends Component {
         e.preventDefault();
 
         let Reader = new FileReader();
-        let file = e.target.files[0];   
-        console.log(this.state.imagePreview)
+        let file = e.target.files[0];  
         Reader.onloadend = () => {
             this.setState({
                 file: file,
@@ -37,6 +36,7 @@ class covertimeline extends Component {
         $imagePreview = (<img src={imagePreviewUrl} alt="" className="img-responsive profile-photo" ></img>);
         var id = localStorage.getItem('public');
         var { account } = this.props;
+        console.log(imagePreviewUrl);
         return (
             <div className="timeline-cover">
                 {/*Timeline Menu for Large Screens*/}

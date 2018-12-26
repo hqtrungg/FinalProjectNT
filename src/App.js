@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from './routes';
 import {transaction} from './lib/transaction'
-const {Keypair, StrKey} = require('stellar-base');
+const {Keypair} = require('stellar-base');
 
 class App extends Component {
 
