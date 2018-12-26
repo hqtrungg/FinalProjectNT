@@ -23,8 +23,6 @@ class Timeline extends Component {
                             <div className="col-md-7">
                                 <PostBox/>
                                 <Status/>
-                                <Status/>
-                                <Status/>
                             </div>
                             <Activity/>
                         </div>

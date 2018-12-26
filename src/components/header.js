@@ -3,10 +3,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class header extends Component {
-    localRemove = () => {
-        localStorage.clear();
-    }
     render() {
+        var id = localStorage.getItem('public');
         return (
             <div>
                 <header id="header">
@@ -20,7 +18,7 @@ class header extends Component {
                                     <span className="icon-bar" />
                                     <span className="icon-bar" />
                                 </button>
-                                <Link className="navbar-brand" to={`/newfeed`}><img src='/images/Logo_Resize.png' alt="logo" /></Link>
+                                <Link className="navbar-brand" to={`/newsfeed`}><img src='/images/Logo_Resize.png' alt="logo" /></Link>
                             </div>
                             {/* Collect the nav links, forms, and other content for toggling */}
                             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -60,14 +58,15 @@ class header extends Component {
                                     <li className="dropdown">
                                         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="/images/down-arrow.png" alt="" /></span></a>
                                         <ul className="dropdown-menu login">
-                                            <li><Link to={`/profile`}>Profile</Link></li>
-                                            <li><Link to={`/profile/following`}>Following</Link></li>
-                                            <li><Link to={`/profile/followers`}>Followers</Link></li>
-                                            <li><Link to="/profile/edit">Edit Profile</Link></li>
+                                            <li><Link to={`${id}`}>Profile</Link></li>
+                                            <li><Link to={`/${id}/following`}>Following</Link></li>
+                                            <li><Link to={`/${id}/followers`}>Followers</Link></li>
+                                            <li><Link to={`/${id}/edit`}>Edit Profile</Link></li>
 
                                         </ul>
                                     </li>
-                                    <li className="dropdown"><Link to={`/`} onClick={this.localRemove()}>Sign Out</Link></li>
+                                    <li className="dropdown"><Link to={`/register`}>Register</Link></li>
+                                    <li className="dropdown"><Link to={`/`} onClick={() => {localStorage.removeItem('private'); localStorage.removeItem('public')}}>Sign Out</Link></li>
                                 </ul>
                                 <form className="navbar-form navbar-right hidden-sm">
                                     <div className="form-group">

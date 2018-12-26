@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 
 class newfeed extends Component {
     render() {
+        var id = localStorage.getItem('public');
         return (
             <div>
                 <Header />
@@ -19,20 +20,14 @@ class newfeed extends Component {
                                 <div className="profile-card">
                                     <img src="images/users/user-1.jpg" alt="user" className="profile-photo" />
                                     <h5>
-                                        <Link to={`/profile`} className="text-white">
+                                        <Link to={`/${id}`} className="text-white">
                                             Sarah Cruiz
                                         </Link>
                                     </h5>
-                                    <i className="ion ion-android-person-add" /><Link to={`/followers`} className="text-white">  1,299 followers</Link>
+                                    <i className="ion ion-android-person-add" /><Link to={`/${id}/followers`} className="text-white">  1,299 followers</Link>
                                     <br />
-                                    <i className="ion ion-android-person-add" /><Link to={`/following`} className="text-white">  1,000 following</Link>
+                                    <i className="ion ion-android-person-add" /><Link to={`/${id}/following`} className="text-white">  1,000 following</Link>
                                 </div>
-                                <ul className="nav-news-feed">
-                                    <li><i className="icon ion-ios-paper" /><div><a href="#">My Newsfeed</a></div></li>
-                                    <li><i className="icon ion-ios-people" /><div><a href="#">People Nearby</a></div></li>
-                                    <li><i className="icon ion-images" /><div><a href="#">Images</a></div></li>
-                                    <li><i className="icon ion-ios-videocam" /><div><a href="#">Videos</a></div></li>
-                                </ul>
                             </div>
 
                             <div className="col-md-7">

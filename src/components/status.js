@@ -12,14 +12,10 @@ class status extends Component {
     }
 
     _handleKeyPress = (event) => {
-        if (event.key == 'Enter') {
-            return(
-                <div className="post-comment">
-                    <img src="images/users/user-11.jpg" alt="" className="profile-photo-sm" />
-                    <p><a href="timeline.html" className="profile-link">Diana </a><i className="em em-laughing" />{this.state.comments}</p>
-                </div>
-            );
+        if (event.keyCode == 13) {
+            return true;
         }
+        return false;
     }
 
     updateInputValue = (event) => {
@@ -27,17 +23,27 @@ class status extends Component {
             comments: event.target.value
         })
     }
-    OnPostComment = (stringComments, event) => {
-        if (this._handleKeyPress(event)) (
-            <div className="post-comment">
-                <img src="images/users/user-4.jpg" alt="" className="profile-photo-sm" />
-                <p><a href="#" className="profile-link">John</a>{stringComments}</p>
-            </div>
-        )
+
+    Comments = () => {
+        <div className="post-comment">
+            <img src="images/users/user-4.jpg" alt="" className="profile-photo-sm" />
+            <p><a href="#" className="profile-link">John</a>{this.state.comments}</p>
+        </div>
     }
+    OnPostComment = (stringComments, event) => {
+        if (this._handleKeyPress(event)) {
+            return (
+                { Comments }
+            )
+        }
+    }
+
     render() {
-        var {contents} = this.props;
-        console.log(contents);
+        var { contents } = this.props;
+        var cmt = [];
+        if (this._handleKeyPress) {
+            cmt.push(<Comments key={1} comments={this.state.comments}/>);
+        }
         return (
             <div className="post-content">
                 <img src="images/post-images/12.jpg" alt="post-image" className="img-responsive post-image" />
@@ -60,9 +66,10 @@ class status extends Component {
                             <p>{contents}<i className="em em-anguished" /> <i className="em em-anguished" /> <i className="em em-anguished" /></p>
                         </div>
                         <div className="line-divider" />
+                        {cmt}
                         <div className="post-comment">
                             <img src="images/users/user-1.jpg" alt="" className="profile-photo-sm" />
-                            <input type="text" className="form-control" placeholder="Post a comment" onKeyPress={this._handleKeyPress} onChange={this.updateInputValue} />
+                            <input type="text" className="form-control" placeholder="Post a comment" onKeyDown={this._handleKeyPress} onChange={this.updateInputValue} />
                         </div>
                     </div>
                 </div>

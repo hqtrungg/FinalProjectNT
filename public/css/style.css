@@ -1623,6 +1623,16 @@ ul.online-users li span.online-dot{
   border: 10px solid #fff;
 }
 
+.timeline-cover .timeline-nav-bar .profile-info img.profile-photo:hover{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  opacity: 0.5;
+  cursor: pointer;
+  
+}
+
 .timeline-cover .timeline-nav-bar ul.profile-menu{
   margin: 0;
   display: table;

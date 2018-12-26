@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
  
 class NewFeed extends Component {
     render() {
+        var id = localStorage.getItem('public');
         var { account } = this.props;
         return (
             <div>
@@ -21,13 +22,13 @@ class NewFeed extends Component {
                                 <div className="profile-card">
                                     <img src="images/users/user-1.jpg" alt="user" className="profile-photo" />
                                     <h5>
-                                        <Link to={`/profile`} className="text-white">
+                                        <Link to={`/${id}`} className="text-white">
                                             Sarah Cruiz
                                         </Link>
                                     </h5>
-                                    <i className="ion ion-android-person-add" /><Link to={`/profile/followers`} className="text-white">  {account.followers} followers</Link>
+                                    <i className="ion ion-android-person-add" /><Link to={`/${id}/followers`} className="text-white">  {account.followers} followers</Link>
                                     <br />
-                                    <i className="ion ion-android-person-add" /><Link to={`/profile/following`} className="text-white">   {account.following} following</Link>
+                                    <i className="ion ion-android-person-add" /><Link to={`/${id}/following`} className="text-white">   {account.following} following</Link>
                                 </div>
                             </div>
 

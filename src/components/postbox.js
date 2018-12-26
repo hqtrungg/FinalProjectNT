@@ -35,7 +35,7 @@ class postbox extends Component {
         return (<img id="target" src={this.state.image} style={{width: '100px', height: '100px', border: '0px'}}/>);
     }
     render() {
-
+        
         return (
             <div className="create-post">
                 <div className="row">
@@ -52,8 +52,7 @@ class postbox extends Component {
                             <ul className="publishing-tools list-inline">
                                 <div className="upload-btn-wrapper">
                                     <button className="btn-upload">Upload photo</button>
-                                    <input type="file" name="myfile" onChange={this.handleChange}/>
-                                    
+                                    <input type="file" name="myfile" onChange={this.handleChange}/> 
                                 </div>
                                 <button className="btn btn-primary pull-right" onClick={this.OnShowPost}>Publish</button>
                             </ul>

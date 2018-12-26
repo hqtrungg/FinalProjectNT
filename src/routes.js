@@ -7,6 +7,7 @@ import NewFeed from './pages/NewFeed';
 import ProFile from './pages/Profile';
 import NotFound from './pages/NotFound';
 import Wallet from './pages/Wallet';
+import Register from './pages/Register'
 
 const routes = [
     {
@@ -15,32 +16,37 @@ const routes = [
         main: () => <Login />
     },
     {
-        path: '/newfeed',
+        path: '/register',
+        exact: true,
+        main: () => <Register />
+    },
+    {
+        path: '/newsfeed',
         exact: true,
         main: () => <NewFeed />
     },
     {
-        path: '/profile',
+        path: '/:id',
         exact: true,
         main: () => <ProFile />
     },
     {
-        path: '/profile/edit',
+        path: '/:id/edit',
         exact: true,
         main: ({match}) => <EditProfile match={match}/>
     },
     {
-        path: '/profile/followers',
+        path: '/:id/followers',
         exact: true,
         main: () => <FollowerList />
     },
     {
-        path: '/profile/following',
+        path: '/:id/following',
         exact: true,
         main: () => <FollowingList />
     },
     {
-        path: '/profile/wallet',
+        path: '/:id/wallet',
         exact: true,
         main: () => <Wallet />
     },

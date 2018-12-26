@@ -9,6 +9,7 @@ import Status from '../components/status';
 import {TIMELINE} from '../constants/Timeline';
 import { Link } from 'react-router-dom';
 import { actFetchProfileInfo } from '../actions/index';
+import { connect } from 'react-redux'
 
 class Profile extends Component {
     render() {
@@ -26,8 +27,6 @@ class Profile extends Component {
                             </div>
                             <div className="col-md-7">
                                 <PostBox/>
-                                <Status/>
-                                <Status/>
                                 <Status/>
                             </div>
                             <Activity/>
@@ -63,4 +62,15 @@ class Profile extends Component {
     }
 }
 
-export default Profile;
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+
+const mapDispatchToProps = () => {
+    return {
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
