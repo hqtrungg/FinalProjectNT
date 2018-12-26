@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { TIMELINE, EDIT, FOLLOWERS, FOLLOWING, WALLET } from '../constants/Timeline';
+import { TIMELINE, EDIT, FOLLOWING, WALLET } from '../constants/Timeline';
 import { connect } from 'react-redux';
 
 class covertimeline extends Component {
@@ -58,13 +58,11 @@ class covertimeline extends Component {
                             <ul className="list-inline profile-menu">
                                 <li><Link className={this.props.component === TIMELINE ? "active" : ""} to={`/${id}`}>Profile</Link></li>
                                 <li><Link className={this.props.component === FOLLOWING ? "active" : ""} to={`/${id}/following`}>Following</Link></li>
-                                <li><Link className={this.props.component === FOLLOWERS ? "active" : ""} to={`/${id}/followers`}>Followers</Link></li>
                                 <li><Link className={this.props.component === EDIT ? "active" : ""} to={`/${id}/edit`}>Edit Profile</Link></li>
                                 <li><Link className={this.props.component === WALLET ? "active" : ""} to={`/${id}/wallet`}>Wallet</Link></li>
                             </ul>
                             <ul className="follow-me list-inline">
                                 <li>{account.following} Following</li>
-                                <li>{account.followers} Followers</li>
                                 <li><button className="btn-primary">Follow</button></li>
                             </ul>
                         </div>
@@ -83,7 +81,6 @@ class covertimeline extends Component {
                             <li><Link to={`/${id}/about`}>About</Link></li>
                             <li><Link to={`/${id}/album`}>Album</Link></li>
                             <li><Link to={`/${id}/following`}>Following</Link></li>
-                            <li><Link to={`/${id}/followers`}>Followers</Link></li>
                         </ul>
                         <button className="btn-primary">Add Friend</button>
                     </div>

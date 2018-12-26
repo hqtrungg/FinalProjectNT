@@ -1,32 +1,17 @@
 import * as Types from '../constants/ActionTypes';
 import apiCall from '../apiCall/apiCall'
 
-export const actFetchFollowerList = (profiles) => {
-    return {
-        type: Types.GET_FOLLOWERS_LIST,
-        profiles
-    }
-}
-
-export const actFetchFollowerListRequest = () => {
-    return (dispatch) => {
-        return apiCall('/:profile/followers', 'GET', null).then(res => {
-            dispatch(actFetchFollowerList(res.data));
-        });
-    }
-}
-
-export const actFetchFollowingList = (profiles) => {
+export const actFetchFollowingList = (follows) => {
     return {
         type: Types.GET_FOLLOWING_LIST,
-        profiles
+        follows
     }
 }
 
 export const actFetchFollowingListRequest = () => {
     return (dispatch) => {
-        return apiCall('/:profile/following', 'GET', null).then(res => {
-            dispatch(actFetchFollowerList(res.data));
+        return apiCall('/follow', 'GET', null).then(res => {
+            dispatch(actFetchFollowingList(res.data));
         });
     }
 }
@@ -58,5 +43,23 @@ export const actFetchProfileUpdateRequest = () => {
         return apiCall('/:profile/edit', 'GET', null).then(res => {
             dispatch(actFetchProfileUpdate(res.data));
         })
+    }
+}
+
+export const actPostLoginInfo = (accountInfo) => {
+    return {
+        type: Types.POST_LOGIN_INFO,
+        accountInfo
+    }
+}
+
+export const actPostLoginInfoRequest = (publicKey, signature) => {
+    return (dispatch) => {
+        return apiCall('/signin', 'POST', {
+            publicKey: publicKey,
+            signature: signature,
+          }).then(res => {
+              dispatch(actPostLoginInfo(res.data));
+          })
     }
 }

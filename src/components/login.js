@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 const { Keypair, StrKey } = require('stellar-base');
 var base64 = require('base-64');
+import {transactionGet} from '../lib/transaction/get';
+import { connect } from 'react-redux'
+import { actPostLoginInfoRequest } from '../actions/accounts';
 
 class login extends Component {
     constructor(props) {
@@ -20,7 +23,6 @@ class login extends Component {
 
     GetPublicKey = () => {
         var key = Keypair.fromSecret(this.state.PrivateKey);
-        console.log(key.publicKey());
         this.setState({
             PublicKey: key.publicKey()
         })
@@ -28,18 +30,12 @@ class login extends Component {
     }
 
     localSave = () => {
-        console.log(2222)
-
         if (this.LoginChecking()) {
-            console.log(1111, this.encode(this.state.PrivateKey))
-            console.log(localStorage)
             localStorage.setItem('private', this.state.PrivateKey);
             localStorage.setItem('public', this.GetPublicKey());
-            // console.log(localStorage)
-            console.log(localStorage.getItem('private'))
-            console.log(localStorage.getItem('public'))
+            var login  = transactionGet.login(localStorage.getItem('private'));
+            this.props.fetchLoginInfo(login.publicKey, login.signature);
         }
-
     }
 
     OnChangeHandler = (e) => {
@@ -49,19 +45,13 @@ class login extends Component {
     }
 
     LoginChecking = () => {
-
         if (StrKey.isValidEd25519SecretSeed(this.state.PrivateKey)) {
-            console.log('true', this.state.PrivateKey)
             return true;
-
         }
         return false;
     }
 
     render() {
-        console.log(this.state.PublicKey);
-        console.log(this.state.PrivateKey);
-
         return (
             !localStorage.getItem('private') ?
                 (<div>
@@ -129,4 +119,17 @@ class login extends Component {
     }
 }
 
-export default login;
+const mapStateToProps = (state) => {
+    return {
+        accountInfo: state.accountInfo
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchLoginInfo: (publicKey, signature) => {
+            dispatch(actPostLoginInfoRequest(publicKey, signature));
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(login);

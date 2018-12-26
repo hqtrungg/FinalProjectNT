@@ -60,7 +60,6 @@ class header extends Component {
                                         <ul className="dropdown-menu login">
                                             <li><Link to={`${id}`}>Profile</Link></li>
                                             <li><Link to={`/${id}/following`}>Following</Link></li>
-                                            <li><Link to={`/${id}/followers`}>Followers</Link></li>
                                             <li><Link to={`/${id}/edit`}>Edit Profile</Link></li>
 
                                         </ul>

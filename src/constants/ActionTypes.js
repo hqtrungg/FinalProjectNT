@@ -7,3 +7,4 @@ export const GET_PROFILE_INFO = 'GET_PROFILE_INFO';
 export const GET_BALANCE = 'GET_BALANCE';
 export const GET_ENERGY = 'GET_ENERGY';
 export const GET_TRANSACTIONS = 'GET_TRANSACTIONS';
+export const POST_LOGIN_INFO = 'POST_LOGIN_INFO';

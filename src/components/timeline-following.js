@@ -10,7 +10,7 @@ class TimelineFollowing extends Component {
                     <div className="card-info">
                         <img src="/images/users/user-10.jpg" alt="user" className="profile-photo-lg" />
                         <div className="friend-info">
-                            <a href="timeline.html" className="pull-right text-green">My Friend</a>
+                            <a href="" className="pull-right text-green">Unfollow</a>
                             <h5><a href="#" className="profile-link">Julia Cox</a></h5>
                         </div>
                     </div>

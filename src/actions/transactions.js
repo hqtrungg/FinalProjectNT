@@ -1,17 +1,16 @@
 import * as Types from '../constants/ActionTypes';
 import apiCall from '../apiCall/apiCall';
 
-export const actFetchTransactionsList = (transactions) => {
+export const actPostTransaction = (transactions) => {
     return {
         type: Types.GET_TRANSACTIONS,
-        transactions
+        transactions,
     }
 }
-
-export const actFetchTransactionListRequest = () => {
-    return (dispatch) => {
-        return apiCall('/:profile/wallet', 'GET', null).then(res => {
-            dispatch(actFetchTransactionsList(res.data));
-        });
+export const actPostTransactionRequest = (transactions) => {
+    return () => {
+        return (apiCall('/transactions', 'POST', {txs:transactions})).then(res => {
+            alert("Success")
+        }).catch(err => {alert(err.data.value.message)});
     }
 }

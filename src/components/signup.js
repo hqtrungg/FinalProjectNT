@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 const { Keypair } = require('stellar-base');
 var base64 = require('base-64');
 import Header from '../components/header'
+import {transactionGet} from '../lib/transaction/get';
+import { connect } from 'react-redux';
+import { actPostTransaction, actPostTransactionRequest } from '../actions/transactions';
 
 class signup extends Component {
     constructor(props) {
@@ -11,9 +14,15 @@ class signup extends Component {
             PublicKey: '',
             PrivateKey: '',
             isFilled: false,
+
         }
     }
 
+    CreateKey = () => {
+        let account = this.state.account;
+        let txs = transactionGet.createAccount(localStorage.getItem('private'), account.sequence, this.state.PublicKey);
+        this.props.actPostTransaction(txs);
+    }
     onGetKey = () => {
         const key = Keypair.random();
         this.setState({
@@ -92,7 +101,7 @@ class signup extends Component {
                                             </form>{/*Register Now Form Ends*/}
 
                                             <button className="btn btn-primary" onClick={this.onGetKey}>Generate Key Now</button>
-                                            <button className="btn btn-success" style={{ borderRadius: '30px' }} onClick={this.alert}>Register</button>
+                                            <button className="btn btn-success" style={{ borderRadius: '30px' }} onClick={() => {this.CreateKey()}}>Register</button>
 
                                         </div>{/*Registration Form Contents Ends*/}
                                     </div>
@@ -107,4 +116,17 @@ class signup extends Component {
     }
 }
 
-export default signup;
+const mapStateToProps = () => {
+    return {
+        
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actPostTransaction: (transactions) => {
+            dispatch(actPostTransactionRequest(transactions));
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(signup);

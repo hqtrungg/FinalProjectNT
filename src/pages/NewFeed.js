@@ -5,7 +5,6 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import PostBox from '../components/postbox';
 import Status from '../components/status';
-import FollowHint from '../components/followhint';
 import { connect } from 'react-redux'
  
 class NewFeed extends Component {

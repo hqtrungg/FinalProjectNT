@@ -1,6 +1,5 @@
 import React from 'react';
 import EditProfile from './pages/EditProfile';
-import FollowerList from './pages/FollowerList';
 import FollowingList from './pages/FollowingList';
 import Login from './pages/Login';
 import NewFeed from './pages/NewFeed';
@@ -34,11 +33,6 @@ const routes = [
         path: '/:id/edit',
         exact: true,
         main: ({match}) => <EditProfile match={match}/>
-    },
-    {
-        path: '/:id/followers',
-        exact: true,
-        main: () => <FollowerList />
     },
     {
         path: '/:id/following',

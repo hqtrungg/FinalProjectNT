@@ -18,6 +18,9 @@ const account = (state = initialState, action) => {
         case Types.UPDATE_PROFILE:
             state = action.user;
             return [...state];
+        case Types.POST_LOGIN_INFO:
+            state = action.accountInfo;
+            return [...state];
         default: return state;
     }
 };

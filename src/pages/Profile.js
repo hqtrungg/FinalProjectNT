@@ -2,13 +2,10 @@
 import React, { Component } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import Activity from '../components/activity';
 import CoverTimeline from '../components/cover-timeline';
 import PostBox from '../components/postbox';
 import Status from '../components/status';
 import {TIMELINE} from '../constants/Timeline';
-import { Link } from 'react-router-dom';
-import { actFetchProfileInfo } from '../actions/accounts';
 import { connect } from 'react-redux'
 
 class Profile extends Component {
