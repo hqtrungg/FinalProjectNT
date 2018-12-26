@@ -16,6 +16,13 @@ export const actFetchFollowingListRequest = () => {
     }
 }
 
+export const actSetFollowingList = (follows) => {
+    return {
+        type: Types.SET_FOLLOWING_LIST,
+        follows
+    }
+}
+
 export const actFetchProfileInfo = (user) => {
     return {
         type: Types.GET_PROFILE_INFO,

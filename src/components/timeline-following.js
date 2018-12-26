@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 class TimelineFollowing extends Component {
     render() {
+        
         return (
             <div className="col-md-6 col-sm-6">
                 <div className="friend-card">
@@ -10,7 +11,7 @@ class TimelineFollowing extends Component {
                     <div className="card-info">
                         <img src="/images/users/user-10.jpg" alt="user" className="profile-photo-lg" />
                         <div className="friend-info">
-                            <a href="" className="pull-right text-green">Unfollow</a>
+                            <a onClick={} className="pull-right text-green">Unfollow</a>
                             <h5><a href="#" className="profile-link">Julia Cox</a></h5>
                         </div>
                     </div>

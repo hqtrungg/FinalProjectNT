@@ -6,9 +6,15 @@ import CoverTimeline from '../components/cover-timeline';
 import { FOLLOWING } from '../constants/Timeline';
 import TimelineFollowing from '../components/timeline-following';
 import { connect } from 'react-redux'
-import { actFetchFollowingListRequest } from '../actions/accounts';
+import { actFetchFollowingListRequest, actSetFollowingList } from '../actions/accounts';
 
 class FollowingList extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            followList: []
+        }
+    }
     render() {
         var { follows } = this.props;
         return (
@@ -59,6 +65,11 @@ class FollowingList extends Component {
         );
     }
 
+    onUnFollow = (id) => {
+        this.props.actSetFollowingList(this.props.follows);
+        
+    }
+
     showFollowingList(follows){
         var result = null;
         if(follows.length > 0){
@@ -76,10 +87,13 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         fetchFollowingList: () => {
             dispatch(actFetchFollowingListRequest())
+        },
+        setFollowingList: (follows) => {
+            dispatch(actSetFollowingList(follows))
         }
     }
 }

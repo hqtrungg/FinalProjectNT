@@ -1,4 +1,3 @@
-export const GET_FOLLOWERS_LIST = 'GET_FOLLOWERS_LIST';
 export const GET_FOLLOWING_LIST = 'GET_FOLLOWING_LIST';
 export const UP_STATUS = 'UP_STATUS';
 export const GET_USER_LIST = 'GET_USER_LIST';
@@ -8,3 +7,4 @@ export const GET_BALANCE = 'GET_BALANCE';
 export const GET_ENERGY = 'GET_ENERGY';
 export const GET_TRANSACTIONS = 'GET_TRANSACTIONS';
 export const POST_LOGIN_INFO = 'POST_LOGIN_INFO';
+export const SET_FOLLOWING_LIST = 'SET_FOLLOWING_LIST';
