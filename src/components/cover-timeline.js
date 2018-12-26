@@ -21,7 +21,7 @@ class covertimeline extends Component {
         e.preventDefault();
 
         let Reader = new FileReader();
-        let file = e.target.files[0];
+        let file = e.target.files[0];   
         console.log(this.state.imagePreview)
         Reader.onloadend = () => {
             this.setState({

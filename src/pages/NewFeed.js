@@ -38,10 +38,6 @@ class NewFeed extends Component {
                                 <Status />
                                 <Status />
                             </div>
-
-                            <div className="col-md-2 static">
-                                <FollowHint />
-                            </div>
                         </div>
                         <div className='row'>
                             <div className="col-md-9"></div>

@@ -8,7 +8,7 @@ import PostBox from '../components/postbox';
 import Status from '../components/status';
 import {TIMELINE} from '../constants/Timeline';
 import { Link } from 'react-router-dom';
-import { actFetchProfileInfo } from '../actions/index';
+import { actFetchProfileInfo } from '../actions/accounts';
 import { connect } from 'react-redux'
 
 class Profile extends Component {
@@ -29,7 +29,6 @@ class Profile extends Component {
                                 <PostBox/>
                                 <Status/>
                             </div>
-                            <Activity/>
                         </div>
                         <div className='row'>
                             <div className="col-md-9"></div>

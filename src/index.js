@@ -6,9 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import appReducers from './reducers/index';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { applyMiddleware } from 'redux';
 
 const store = createStore(
-	appReducers
+    appReducers,
+    applyMiddleware(thunk),
 );
 
 ReactDOM.render((

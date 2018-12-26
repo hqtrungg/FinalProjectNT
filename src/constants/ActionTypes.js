@@ -4,4 +4,6 @@ export const UP_STATUS = 'UP_STATUS';
 export const GET_USER_LIST = 'GET_USER_LIST';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const GET_PROFILE_INFO = 'GET_PROFILE_INFO';
-export const UPDATE_PROFILE_INFO = 'UPDATE_PROFILE_INFO'
+export const GET_BALANCE = 'GET_BALANCE';
+export const GET_ENERGY = 'GET_ENERGY';
+export const GET_TRANSACTIONS = 'GET_TRANSACTIONS';

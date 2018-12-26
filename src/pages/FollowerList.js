@@ -6,7 +6,7 @@ import CoverTimeline from '../components/cover-timeline';
 import { FOLLOWERS } from '../constants/Timeline';
 import TimelineFollowers from '../components/timeline-followers';
 import { connect } from 'react-redux'
-import { actFetchFollowerListRequest } from '../actions';
+import { actFetchFollowerListRequest } from '../actions/accounts';
 
 class FollowerList extends Component {
     render() {

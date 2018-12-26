@@ -1,10 +1,10 @@
 import * as Types from '../constants/ActionTypes';
 import apiCall from '../apiCall/apiCall'
 
-export const actFetchFollowerList = (users) => {
+export const actFetchFollowerList = (profiles) => {
     return {
         type: Types.GET_FOLLOWERS_LIST,
-        users
+        profiles
     }
 }
 
@@ -16,10 +16,10 @@ export const actFetchFollowerListRequest = () => {
     }
 }
 
-export const actFetchFollowingList = (users) => {
+export const actFetchFollowingList = (profiles) => {
     return {
         type: Types.GET_FOLLOWING_LIST,
-        users
+        profiles
     }
 }
 
@@ -31,10 +31,10 @@ export const actFetchFollowingListRequest = () => {
     }
 }
 
-export const actFetchProfileInfo = (users) => {
+export const actFetchProfileInfo = (user) => {
     return {
         type: Types.GET_PROFILE_INFO,
-        users
+        user
     }
 }
 
@@ -43,5 +43,20 @@ export const actFetchUserListRequest = () => {
         return apiCall('/:profile', 'GET', null).then(res => {
             dispatch(actFetchProfileInfo(res.data));
         });
+    }
+}
+
+export const actFetchProfileUpdate = (user) => {
+    return {
+        type: Types.UPDATE_PROFILE,
+        user
+    }
+}
+
+export const actFetchProfileUpdateRequest = () => {
+    return (dispatch) => {
+        return apiCall('/:profile/edit', 'GET', null).then(res => {
+            dispatch(actFetchProfileUpdate(res.data));
+        })
     }
 }

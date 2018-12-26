@@ -4,7 +4,6 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import CoverTimeline from '../components/cover-timeline';
 import {EDIT} from '../constants/Timeline';
-import { Link } from 'react-router-dom';
 
 class EditProfile extends Component {
     render() {

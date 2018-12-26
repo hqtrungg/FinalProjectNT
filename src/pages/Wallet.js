@@ -38,7 +38,7 @@ class Wallet extends Component {
                                     <br></br>
                                     <div className="block-title">
                                         <h4 className="grey"><i className="icon ion-android-checkmark-circle" />Your Transaction</h4>
-                                        <table class="table table-hover" style={{fontSize: '16px', width: '700px'}}>
+                                        <table className="table table-hover" style={{fontSize: '16px', width: '700px'}}>
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Height</th>
@@ -62,7 +62,7 @@ class Wallet extends Component {
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">3</th>
-                                                    <td colspan="2">Larry the Bird</td>
+                                                    <td colSpan="2">Larry the Bird</td>
                                                     <td>@twitter</td>
                                                 </tr>
                                             </tbody>
