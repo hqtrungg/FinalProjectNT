@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Reaction from './reaction';
 import Comments from './comments'
-
+import moment from 'moment'
 class status extends Component {
     constructor(props) {
         super(props);
@@ -38,35 +38,41 @@ class status extends Component {
         }
     }
 
+    ShowName = (tweet) => {
+        if(tweet.account.name)
+            return tweet.account.name;
+        else return tweet.account.address;
+    }
     render() {
-        var { contents } = this.props;
+    
+        var { tweet } = this.props;
         var cmt = [];
         if (this._handleKeyPress) {
-            cmt.push(<Comments key={1} comments={this.state.comments}/>);
+            cmt.push(<Comments key={1} comments={this.state.comments} />);
         }
         return (
             <div className="post-content">
-                <img src="images/post-images/12.jpg" alt="post-image" className="img-responsive post-image" />
+
                 <div className="post-container">
-                    <div className="reaction-emoji">
-                        <Reaction />
-                    </div>
-                    <div className="line-divider" />
+                    
                     <img src="images/users/user-1.jpg" alt="user" className="profile-photo-md pull-left" />
                     <div className="post-detail">
-                        <div className="user-info">
-                            <h5><a href="timeline.html" className="profile-link">Sarah Cruiz</a> <span className="following">following</span></h5>
-                            <p className="text-muted">Published a photo about 15 mins ago</p>
-                        </div>
+                        
                         <div className="reaction">
                             <a className="btn text-blue"><i className="fa fa-share" /> 0</a>
                         </div>
                         <div className="line-divider" />
                         <div className="post-text">
-                            <p>{contents}<i className="em em-anguished" /> <i className="em em-anguished" /> <i className="em em-anguished" /></p>
+                            <p>{tweet.content.text}<i className="em em-anguished" /> <i className="em em-anguished" /> <i className="em em-anguished" /></p>
+                        </div>
+                        <div className="user-info">
+                            <h5><a href="timeline.html" className="profile-link">{this.ShowName(tweet)}</a></h5>
+                            <p className="text-muted">Published content in {moment(tweet.time).format('lll')}</p>
                         </div>
                         <div className="line-divider" />
-                        {cmt}
+                        <div className="reaction-emoji">
+                            <Reaction number={tweet.react}/>
+                        </div>
                         <div className="post-comment">
                             <img src="images/users/user-1.jpg" alt="" className="profile-photo-sm" />
                             <input type="text" className="form-control" placeholder="Post a comment" onKeyDown={this._handleKeyPress} onChange={this.updateInputValue} />

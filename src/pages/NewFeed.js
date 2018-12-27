@@ -5,12 +5,50 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import PostBox from '../components/postbox';
 import Status from '../components/status';
-import { connect } from 'react-redux'
- 
+import { connect } from 'react-redux';
+import { actGetAllNewsFeedRequest } from '../actions/newsfeed'
+import { Stats } from 'fs';
+import Pagination from "react-js-pagination";
+
 class NewFeed extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          activePage: 15
+        };
+    }
+
+    handlePageChange(pageNumber) {
+        console.log(`active page is ${pageNumber}`);
+        this.setState({activePage: pageNumber});
+    }
+
+    componentDidMount() {
+        this.props.OnGetAllNewsFeed();
+    }
+
+    showStatusList(tweets) {
+        var result = null;
+        var reverseTw = tweets.reverse();
+        if (reverseTw.length > 0) {
+            result = reverseTw.map((tweet, index) => {
+                if (tweet.comment.length != 0) {
+                    console.log('comment');
+                }
+                if (tweet.react.length != 0) {
+                    console.log('react');
+                }
+                return <Status key={index} tweet={tweet} />
+            })
+        }
+        return result;
+    }
+
     render() {
+
         var id = localStorage.getItem('public');
-        var { account } = this.props;
+        var { account, newsfeeds } = this.props;
+        console.log(newsfeeds);
         return (
             <div>
                 <Header />
@@ -33,32 +71,16 @@ class NewFeed extends Component {
 
                             <div className="col-md-7">
                                 <PostBox />
+                                {this.showStatusList(this.props.newsfeeds)}
+                                {/* <Status />
                                 <Status />
-                                <Status />
-                                <Status />
+                                <Status /> */}
                             </div>
                         </div>
                         <div className='row'>
                             <div className="col-md-9"></div>
-                            <div className="col-md-3" style={{display: 'flex', alignItems: 'right'}}>
-                                <nav aria-label="..." style={{ marginRight: '0px', right: '0px' }}>
-                                    <ul className="pagination">
-                                        <li className="page-item disabled">
-                                            <span className="page-link">Previous</span>
-                                        </li>
-                                        <li className="page-item"><a className="page-link" href="#">1</a></li>
-                                        <li className="page-item active">
-                                            <span className="page-link">
-                                                2
-                                        <span className="sr-only">(current)</span>
-                                            </span>
-                                        </li>
-                                        <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                        <li className="page-item">
-                                            <a className="page-link" href="#">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                            <div className="col-md-3" style={{ display: 'flex', alignItems: 'right' }}>
+                                
                             </div>
                         </div>
                     </div>
@@ -71,13 +93,17 @@ class NewFeed extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        account: state.account
+        account: state.account,
+        newsfeeds: state.newsfeed.newsfeeds
     }
 }
 
-const mapDispatchToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        
+        OnGetAllNewsFeed: () => {
+            dispatch(actGetAllNewsFeedRequest())
+        },
+
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NewFeed);

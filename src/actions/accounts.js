@@ -23,21 +23,6 @@ export const actSetFollowingList = (follows) => {
     }
 }
 
-export const actFetchProfileInfo = (user) => {
-    return {
-        type: Types.GET_PROFILE_INFO,
-        user
-    }
-}
-
-export const actFetchUserListRequest = () => {
-    return (dispatch) => {
-        return apiCall('/:profile', 'GET', null).then(res => {
-            dispatch(actFetchProfileInfo(res.data));
-        });
-    }
-}
-
 export const actFetchProfileUpdate = (user) => {
     return {
         type: Types.UPDATE_PROFILE,
@@ -60,13 +45,40 @@ export const actPostLoginInfo = (accountInfo) => {
     }
 }
 
-export const actPostLoginInfoRequest = (publicKey, signature) => {
+export const actPostLoginInfoRequest = (publicKey, privateKey, signature) => {
     return (dispatch) => {
-        return apiCall('/signin', 'POST', {
+        return apiCall('signIn', 'POST', {
             publicKey: publicKey,
             signature: signature,
           }).then(res => {
-              dispatch(actPostLoginInfo(res.data));
+              if(res.data.statusCode === 1){
+                localStorage.setItem('private', privateKey);
+                localStorage.setItem('public', publicKey);
+                dispatch(actPostLoginInfo(res.data.value));
+              }
+              else {
+                  alert(res.data.message)
+              }
+          })
+    }
+}
+
+export const actSetProfileInfo = (accountInfo) => {
+    return {
+        type: Types.SET_PROFILE_INFO,
+        accountInfo
+    }
+}
+
+export const actGetProfileInfoRequest = (publicKey) => {
+    return (dispatch) => {
+        return apiCall(`account/${publicKey}`, 'POST', {
+            publicKey: publicKey,
+          }).then(res => {
+              if(res.data.statusCode === 1){
+                localStorage.setItem('public', publicKey);
+                dispatch(actSetProfileInfo(res.data.value));
+              }
           })
     }
 }

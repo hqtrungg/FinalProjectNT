@@ -7,6 +7,8 @@ import PostBox from '../components/postbox';
 import Status from '../components/status';
 import {TIMELINE} from '../constants/Timeline';
 import { connect } from 'react-redux'
+import { actSetProfileInfo } from '../actions/accounts';
+import { actGetProfileInfoRequest } from '../actions/accounts'
 
 class Profile extends Component {
     render() {
@@ -24,7 +26,7 @@ class Profile extends Component {
                             </div>
                             <div className="col-md-7">
                                 <PostBox/>
-                                <Status/>
+                                
                             </div>
                         </div>
                         <div className='row'>
@@ -60,13 +62,16 @@ class Profile extends Component {
 
 const mapStateToProps = (state) => {
     return {
-
+        account: state.account,
+    
     }
 }
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
     return {
-
+        actGetProfileInfoRequest : () => {
+            dispatch(actSetProfileInfo())
+        }
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

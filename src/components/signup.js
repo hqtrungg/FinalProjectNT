@@ -19,8 +19,9 @@ class signup extends Component {
     }
 
     CreateKey = () => {
-        let account = this.state.account;
+        var account = this.state.account;
         let txs = transactionGet.createAccount(localStorage.getItem('private'), account.sequence, this.state.PublicKey);
+        console.log(txs);
         this.props.actPostTransaction(txs);
     }
     onGetKey = () => {
@@ -116,9 +117,9 @@ class signup extends Component {
     }
 }
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
     return {
-        
+        transactions: state.transactions
     }
 }
 

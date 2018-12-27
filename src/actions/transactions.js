@@ -14,3 +14,10 @@ export const actPostTransactionRequest = (transactions) => {
         }).catch(err => {alert(err.data.value.message)});
     }
 }
+// export const actPostTransactionRequest = (transactions) => {
+//     return (dispatch) => {
+//         return (apiCall('transactions', 'POST', {txs: transactions})).then(res => {
+//             dispatch(actPostTransaction(res.data));
+//         })
+//     }
+// }

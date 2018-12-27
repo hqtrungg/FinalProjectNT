@@ -11,7 +11,7 @@ import {transactionGet} from '../lib/transaction/get'
 class EditProfile extends Component {
     constructor(props) {
         super(props);
-        this.state ={
+        this.state = {
             newName: ''
         }
     }

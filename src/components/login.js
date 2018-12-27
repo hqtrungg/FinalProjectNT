@@ -13,9 +13,16 @@ class login extends Component {
         this.state = {
             PublicKey: '',
             PrivateKey: '',
+            isLoad: true,
+            loged: false
         }
     }
-
+    componentDidUpdate(){
+        if(this.LoginChecking()){
+            console.log(this.state.loged);
+            this.state.loged = true;
+        }
+    }
     encode = (key) => {
         var encodeKey = base64.encode(key);
         return encodeKey;
@@ -30,12 +37,13 @@ class login extends Component {
     }
 
     localSave = () => {
-        if (this.LoginChecking()) {
-            localStorage.setItem('private', this.state.PrivateKey);
-            localStorage.setItem('public', this.GetPublicKey());
-            var login  = transactionGet.login(localStorage.getItem('private'));
-            this.props.fetchLoginInfo(login.publicKey, login.signature);
+        if (!StrKey.isValidEd25519SecretSeed(this.state.PrivateKey)) {
+            return;
         }
+            var login  = transactionGet.login(this.state.PrivateKey);
+            this.props.fetchLoginInfo(login.publicKey, this.state.PrivateKey, login.signature);
+            //this.LoginChecking()
+        
     }
 
     OnChangeHandler = (e) => {
@@ -45,13 +53,23 @@ class login extends Component {
     }
 
     LoginChecking = () => {
-        if (StrKey.isValidEd25519SecretSeed(this.state.PrivateKey)) {
+        var privatekey;
+        try {
+            privatekey = localStorage.getItem('private');
+        } catch (error){
+            console.log(error);
+        }
+        console.log('privatekey', privatekey)
+        
+        if ( privatekey && StrKey.isValidEd25519SecretSeed(privatekey)) {
             return true;
         }
         return false;
     }
 
     render() {
+        console.log(this.props)
+        console.log(this.state.PrivateKey);
         return (
             !localStorage.getItem('private') ?
                 (<div>
@@ -99,12 +117,12 @@ class login extends Component {
                                                     </div>
                                                 </div>
                                             </form>{/*Login Form Ends*/}
-                                            {this.LoginChecking() ? (
+                                            {this.props.accountInfo.loged ? (
                                                 <Link to={"/newsfeed"}>
-                                                    <button className="btn btn-primary" onClick={this.localSave}>Login Now</button>
+                                                    <button className="btn btn-primary" onClick={() => this.localSave()}>Login Now</button>
                                                 </Link>
                                             ) : (<Link to={"/"}>
-                                                <button className="btn btn-primary" onClick={this.localSave}>Login Now</button>
+                                                <button className="btn btn-primary" onClick={() => this.localSave()}>Login Now</button>
                                             </Link>)}
 
                                         </div>
@@ -121,14 +139,14 @@ class login extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        accountInfo: state.accountInfo
+        accountInfo: state.account.accountInfo
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchLoginInfo: (publicKey, signature) => {
-            dispatch(actPostLoginInfoRequest(publicKey, signature));
+        fetchLoginInfo: (publicKey, privateKey, signature) => {
+            dispatch(actPostLoginInfoRequest(publicKey, privateKey, signature));
         }
     }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class reaction extends Component {
     render() {
+        var {number} = this.props;
         return (
             <div className="facebook-reaction">
                 <span className="like-btn">
@@ -20,7 +21,7 @@ class reaction extends Component {
                     <span className="like-emo">
                         <span className="like-btn-like"></span>
                     </span>
-                    <span className="like-details">1</span>
+                    <span className="like-details">{number}</span>
                 </div>
             </div>
         );

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { TIMELINE, EDIT, FOLLOWING, WALLET } from '../constants/Timeline';
 import { connect } from 'react-redux';
+import { actPostTransactionRequest } from '../actions/transactions';
 
 class covertimeline extends Component {
     constructor(props) {
@@ -36,7 +37,6 @@ class covertimeline extends Component {
         $imagePreview = (<img src={imagePreviewUrl} alt="" className="img-responsive profile-photo" ></img>);
         var id = localStorage.getItem('public');
         var { account } = this.props;
-        console.log(imagePreviewUrl);
         return (
             <div className="timeline-cover">
                 {/*Timeline Menu for Large Screens*/}
@@ -46,7 +46,6 @@ class covertimeline extends Component {
                             <div className="profile-info">
                                 {$imagePreview}
                                 <h3>{account.name}</h3>
-                                <p className="text-muted">{account.job}</p>
                                 <div className="previewComponent">
                                     <form onSubmit={(e) => this._handleSubmit(e)}>
                                         <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)} />
@@ -95,4 +94,12 @@ const mapStateToProps = (state) => {
         account: state.account
     }
 }
-export default connect(mapStateToProps, null)(covertimeline);
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actAvatarUpdate: (transactions) => {
+            dispatch(actPostTransactionRequest(transactions))
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(covertimeline);
